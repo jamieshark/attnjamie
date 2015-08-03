@@ -20,7 +20,7 @@ var dirs = {
 	devStyles: './dev/scss',
 	distStyles: './dist/css',
 	devJS: './dev/js',
-	distJS: './dev/js'
+	distJS: './dev/js',
 	devImages: './dev/img',
 	distImages: './dist/img'
 };
