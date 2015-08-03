@@ -77,7 +77,7 @@ gulp.task('serve', function() {
   });
 });
 
-// Watch and test
+// Watch
 
 gulp.task('watch', ['serve'], function() {
   gulp.watch(dirs.devStyles + '/**/*.scss', ['styles']);
