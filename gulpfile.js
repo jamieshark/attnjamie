@@ -20,7 +20,7 @@ var dirs = {
 	devStyles: './dev/scss',
 	distStyles: './dist/css',
 	devJS: './dev/js',
-	distJS: './dev/js',
+	distJS: './dist/js',
 	devImages: './dev/img',
 	distImages: './dist/img'
 };
@@ -28,7 +28,7 @@ var dirs = {
 // Spring Cleanin'
 
 gulp.task('clean:dist', function(cb) {
-	rimraf(dirs.dist, cb);
+	rimraf(dirs.dist + '/**/', cb);
 });
 
 // Styles
@@ -47,7 +47,6 @@ gulp.task('styles', function() {
 gulp.task('js', function() {
   return gulp.src(dirs.devJS + '/**/*.js')
     .pipe(concat('main.js'))
-    .pipe(gulp.dest(dirs.distJS))
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
     .pipe(gulp.dest(dirs.distJS))
@@ -79,8 +78,8 @@ gulp.task('serve', function() {
 
 // Watch
 
-gulp.task('watch', ['serve'], function() {
+gulp.task('watch', function() {
   gulp.watch(dirs.devStyles + '/**/*.scss', ['styles']);
-  gulp.watch(dirs.devJS + '/**/*.js', ['js']);
+  gulp.watch(dirs.devJS + '/*.js', ['js']);
   gulp.watch(dirs.devImages + '/**/*', ['images']);
 });
