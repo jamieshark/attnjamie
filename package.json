@@ -7,6 +7,7 @@
     "url": "https://github.com/jeanieshark/jeaniedotcom"
   },
   "devDependencies": {
+    "foundation-sites": "^5.5.2",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-concat": "^2.6.0",

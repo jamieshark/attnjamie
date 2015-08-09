@@ -1,3 +1,9 @@
-'use strict'
+'use strict';
 
-console.log('hello');
+(function() {
+
+	$(document).on('ready', function() {
+		$(document).foundation();
+	});
+	
+})();
