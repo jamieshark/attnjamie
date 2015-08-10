@@ -17,15 +17,107 @@ nav {
 	}
 
 	a {
+		font-family: 'Quicksand', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 		color: white;
+	}
+	a:hover {
+		color: #89bdd3 !important;
 	}
 
 	ul {
 		list-style-type: none;
-		margin-top: .5rem;
+		cursor: default;
+		margin: .5rem 0 0 0;
 		li {
-			margin: .5rem;
+			margin: 1rem;
 			display: inline;
 		}
 	}
 }
+
+/* Thanks Codrops */
+.dot-nav ul {
+	position: relative;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	cursor: default;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.dot-nav li {
+	position: relative;
+	display: block;
+	float: left;
+	margin: 0 2rem;
+	width: 1rem;
+	height: 1rem;
+	cursor: pointer;
+}
+
+.dot-nav li a {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	outline: none;
+	border-radius: 50%;
+	background-color: #fff;
+	background-color: rgba(255, 255, 255, 0.3);
+	text-indent: -999em; 
+	cursor: pointer;
+	position: absolute;
+}
+
+.dot-nav li a:focus {
+	outline: none;
+}
+
+.dot-nav--switch li::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	opacity: 0;
+	left: 0;
+	background-color: #9ad3de;
+	border-radius: 50%;
+	-webkit-transform: translateY(-200%);
+	transform: translateY(-200%);
+	-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease, visibility 0s 0.5s;
+	transition: transform 0.5s ease, opacity 0.5s ease, visibility 0s 0.5s;
+}
+
+.dot-nav--switch li a {
+	-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease, background-color 0.5s ease;
+	transition: transform 0.5s ease, opacity 0.5s ease, background-color 0.5s ease;
+}
+
+.dot-nav--switch li:hover a,
+.dot-nav--switch li a:focus,
+.dot-nav--switch li.current a {
+	background-color: #fff;
+}
+
+.dot-nav--switch li.current::after {
+	opacity: 1;
+	visibility: visible;
+	-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+	transition: transform 0.5s ease, opacity 0.5s ease;
+	-webkit-transform: translateY(0%);
+	transform: translateY(0%);
+}
+
+.dot-nav--switch li.current a {
+	opacity: 0;
+	-webkit-transform: translateY(200%);
+	transform: translateY(200%);
+}
+

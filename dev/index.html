@@ -8,6 +8,7 @@
   <meta name="description" content="A website about Jeanie Chung, a developer in the Bay Area.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
   <!-- Styles -->
   <link rel="stylesheet" href="css/foundation.min.css" />
   <link rel="stylesheet" href="css/main.min.css" />
@@ -22,11 +23,21 @@
 <body>
   <header>
     <nav class="sticky">
-      <ul class="right">
-        <li><a href="#"><i class="fi-icon"></i>About</a></li>
-        <li><a href="#"><i class="fi-icon"></i>Work</a></li>
-        <li><a href="#"><i class="fi-icon"></i>Contact</a></li>
-      </ul>
+    	<section class="nav-items right">
+    		<ul>
+    			<li><a href="#about">about</a></li>
+	        <li><a href="#work">work</a></li>
+	        <li><a href="#contact">contact</a></li>
+    		</ul>
+    		<div class="dot-nav dot-nav--switch">
+		      <ul>
+		        <li class="current"><a data-anchor="about" href="#">About</a></li>
+		        <li><a data-anchor="work" href="#">Work</a></li>
+		        <li><a data-anchor="contact" href="#">Contact</a></li>
+		        <li><!-- dummy dot --></li>
+		      </ul>
+		     </div>
+      </section>
     </nav>
 	  <section class="hero hero-video">
 	    <video autoplay loop>
@@ -40,6 +51,22 @@
 		  </div>
 		</section>
   </header>
+  <section id="about" class="section-padding">
+		<div class="row no-margin no-padding">
+	  	<div class="medium-6 columns">
+	       <img class="bio-img" src="./img/jeanie-bio-pic.jpg" />
+	    </div>
+	  	<div class="medium-6 columns bio-content">
+	  	    <h2>Hey, I'm Jeanie.</h2>
+	        <hr>
+	        <p>
+	          I almost always play "Rogue" class and pick the fire Pokémon starter. I have a penchant for live music and cold brew coffee. My favorite spots in the Bay Area are <a href="https://goo.gl/maps/lOrpH" target="_blank">this wall</a> and <a href="https://goo.gl/maps/SGeVd" target="_blank">this exhibit</a>.
+	        </p>
+	        <p>
+	        </p> 
+	  	</div>
+	  </div>  	
+  </section>
   <footer class="text-center">
     <div class="row">
       <div class="medium-8 columns footer-info">
@@ -51,7 +78,14 @@
       <div class="medium-4 columns">
         <div class="social-links">
             <ul>
-                <li ng-repeat="socialLink in socialLinks"><i class="fi-{{socialLink.icon}}"></i><a target="_blank" href="{{socialLink.url}}">  {{socialLink.title}}</a>
+                <li>
+                	<i class="fi-social-github"></i><a target="_blank" href="https://github.com/jeanieshark">  Github</a>
+                </li>
+                <li>
+                	<i class="fi-social-twitter"></i><a target="_blank" href="https://twitter.com/jeanieshark">  Twitter</a>
+                </li>
+                <li>
+                	<i class="fi-social-linkedin"></i><a target="_blank" href="https://www.linkedin.com/profile/view?id=129993573">  LinkedIn</a>
                 </li>
             </ul>
         </div>
