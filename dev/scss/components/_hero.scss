@@ -4,10 +4,10 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  min-width: 100%;
   min-height: 100%;
-  width: auto;
+  min-width: 100%;
   height: auto;
+  width: auto;
   z-index: 0;
   transform: translateX(-50%) translateY(-50%);
   background-size: cover;
@@ -25,6 +25,8 @@
 }
 .hero {
   height: 100vh;
+  width: auto;
+  overflow: hidden;
   &:before {
     content: '';
 		position: absolute;
@@ -55,20 +57,7 @@
     text-align: center;
     margin-bottom: 2rem;
   }
-  .tech-img {
-    background: url('http://static.pexels.com/wp-content/uploads/2015/02/apple-hand-iphone-6-4322-525x350.jpg') no-repeat center center;
-    background-size: cover;
-    height: 9rem;
-    width: 9rem;
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto;
-  }
   @media only screen and (min-width: 40.063em) {
-    .tech-img {
-      height: 18rem;
-      width: 18rem;
-    }
     h1 {
       padding-top: 4.5rem;
       text-align: right;
