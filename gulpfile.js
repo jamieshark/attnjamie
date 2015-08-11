@@ -44,7 +44,7 @@ gulp.task('styles', function() {
 
 // Vendor Styles
 gulp.task('vendor-styles', function() {
-	return gulp.src('./node_modules/foundation-sites/css/foundation.min.css')
+	return gulp.src(['./node_modules/foundation-sites/css/foundation.min.css','./node_modules/foundation-sites/css/normalize.min.css'])
     .pipe(gulp.dest(dirs.distStyles))
 });
 

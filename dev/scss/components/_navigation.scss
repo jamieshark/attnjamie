@@ -1,23 +1,32 @@
 nav {
 	z-index: 500;
-	height: 3rem;
+	height: auto;
 	width: 100%;
 	background: none;
-	/*set up for toggling background behavior*/
-	&.opaque{
-		background: rgba(255, 255, 255, .3);
-	}
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	transition: .5s;
 	&.even {
-		ul {
-			text-align: justify;
-			li {
-				display: inline-block;
-			}
+		background: rgba(255, 255, 255, .3);
+		justify-content: center;
+		align-items: space-between;
+		transition: .5s;
+
+		.nav-items {
+			height: 10vh;
 		}
-		ul:after {
-			content: '';
-		  width: 100%; /* Ensures justification for single lines */
-		  display: inline-block;
+		ul, .nav-items {
+			transition: .5s;
+			min-width: 100%;
+		}
+
+		li {
+			justify-content: center;
+			a {
+				display: flex;
+				flex: 0 auto;
+			}
 		}
 	}
 	/*set up for a sticky behavior*/
@@ -43,20 +52,29 @@ nav {
 		list-style-type: none;
 		cursor: default;
 		margin: .5rem 0 0 0;
+		width: 10%;
+		display: flex;
+		flex: 1 0 auto;
+		align-self: flex-last;
+		transition: .5s;
 		li {
 			margin: 1rem;
-			display: inline;
+			width: auto;
+			display: flex;
+			flex: 1 0 auto;
 		}
 	}
 	.nav-items {
+		display: flex;
+		flex: 0 0 auto;
+		min-width: 300px;
 		margin: 1rem 2rem;
+		transition: .5s;
 	}
 }
 
 .dot-nav li {
 	position: relative;
-	display: block;
-	float: left;
 	margin: 0 2rem;
 	width: 1rem;
 	height: 1rem;
@@ -113,6 +131,7 @@ nav {
 .dot-nav--switch li.current .dot {
 	background-color: #fff;
 }
+
 
 .dot-nav--switch li.current a::after {
 	opacity: 1;
