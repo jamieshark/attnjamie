@@ -8,13 +8,14 @@ nav {
 	justify-content: flex-end;
 	transition: .5s;
 	&.even {
-		background: rgba(255, 255, 255, .3);
+		background: rgba(0, 0, 0, .2);
 		justify-content: center;
 		align-items: space-between;
 		transition: .5s;
 
 		.nav-items {
-			height: 10vh;
+			height: 5vh;
+			margin: 0 2rem 2rem 2rem;
 		}
 		ul, .nav-items {
 			transition: .5s;
