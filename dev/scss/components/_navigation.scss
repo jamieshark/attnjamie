@@ -147,3 +147,9 @@ nav {
 	-webkit-transform: translateY(200%);
 	transform: translateY(200%);
 }
+
+@media all and (max-width: 640px) {
+  nav {
+  	justify-content: center !important;
+  }
+}
