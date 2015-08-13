@@ -22,7 +22,7 @@
 
 			var href = $(this).find('a').attr('href');
 	    $('html, body').animate({
-	        scrollTop: $(href).offset().top
+	        scrollTop: $(href).offset().top - $('nav').height() * 2
 	    }, 500);
 
 	    return false;
