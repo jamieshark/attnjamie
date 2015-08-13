@@ -24,11 +24,8 @@
 	    $('html, body')
 	    	.animate({
 	       scrollTop: $(href).offset().top - $('nav').height()
-	    	}, 500)
-	    	.done(function() {
-	    		toggleCurrentClass(li);
-	    	});
-
+	    	}, 500);
+	    	
 	    return false;
 		});
 
