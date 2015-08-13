@@ -19,13 +19,12 @@
 
 		$('.dot-nav li').on('click', function(e) {
 			e.preventDefault();
-			var li 	 = $(this),
-					href = $(this).find('a').attr('href');
+			var href = $(this).find('a').attr('href');
 	    $('html, body')
 	    	.animate({
 	       scrollTop: $(href).offset().top - $('nav').height()
 	    	}, 500);
-	    	
+
 	    return false;
 		});
 
