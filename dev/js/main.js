@@ -9,6 +9,13 @@
 			e.preventDefault();
 			$('.dot-nav li').removeClass('current');
 			$(this).addClass('current');
+
+			var href = $(this).find('a').attr('href');
+	    $('html, body').animate({
+	        scrollTop: $(href).offset().top
+	    }, 500);
+	    
+	    return false;
 		});
 
 		$(window).on('load scroll', function() {
