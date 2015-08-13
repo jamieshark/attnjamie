@@ -7,6 +7,7 @@
 
 		var toggleCurrentClass = function($li) {
 			$('.dot-nav li').removeClass('current');
+			$('.dot-nav li').find('a').blur();
 			$($li).addClass('current');
 		};
 
@@ -18,12 +19,15 @@
 
 		$('.dot-nav li').on('click', function(e) {
 			e.preventDefault();
-			toggleCurrentClass($(this));
-
-			var href = $(this).find('a').attr('href');
-	    $('html, body').animate({
-	        scrollTop: $(href).offset().top - $('nav').height() * 2
-	    }, 500);
+			var li 	 = $(this),
+					href = $(this).find('a').attr('href');
+	    $('html, body')
+	    	.animate({
+	       scrollTop: $(href).offset().top - $('nav').height()
+	    	}, 500)
+	    	.done(function() {
+	    		toggleCurrentClass(li);
+	    	});
 
 	    return false;
 		});
