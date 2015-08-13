@@ -13,7 +13,7 @@
 		var offsets = [];
 
 		$('.main-content').each(function() {
-			offsets.push($(this).offset().top - 150);
+			offsets.push($(this).offset().top - $('nav').height() * 2);
 		});
 
 		$('.dot-nav li').on('click', function(e) {
