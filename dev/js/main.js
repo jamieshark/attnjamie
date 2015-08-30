@@ -3,7 +3,51 @@
 (function() {
 
 	$(document).on('ready', function() {
+
+		// initialize foundation
 		$(document).foundation();
+
+		// copyright content
+		var favoriteThings = [
+			"cold brew coffee",
+			"Cowgirl Creamery cheese",
+			"strawberries",
+			"Blue Bottle coffee",
+			"Choco Tacos",
+			"grilled pork belly",
+			"coconut water",
+			"peanut butter",
+			"green tea ice cream",
+			"empanadas",
+			"tacos <i>al pastor</i>",
+			"burrata",
+			"waffle fries",
+			"stouts",
+			"porters",
+			"grapefruit juice",
+			"matcha"
+		];
+
+		// do the Knuth shuffle
+		function shuffle(array) {
+		  var currentIndex = array.length, temporaryValue, randomIndex ;
+		  while (0 !== currentIndex) {
+		    randomIndex = Math.floor(Math.random() * currentIndex);
+		    currentIndex -= 1;
+		    temporaryValue = array[currentIndex];
+		    array[currentIndex] = array[randomIndex];
+		    array[randomIndex] = temporaryValue;
+		  }
+
+		  return array;
+		}
+		var insertCopyright = function(targetEl) {
+			shuffle(favoriteThings);
+			var baseStr = "© " + new Date().getFullYear() + " | Powered mainly by " + favoriteThings[0] + " and " + favoriteThings[1] + ".";
+
+			$(targetEl).html(baseStr);
+		}($('#copyright'));
+		// do nav bar stuff
 
 		var toggleCurrentClass = function($li) {
 			$('.dot-nav li').removeClass('current');
