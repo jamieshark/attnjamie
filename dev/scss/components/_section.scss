@@ -1,10 +1,135 @@
-.bio-img {
-    border-radius: 5px;
-  height: 30vh;
-  margin: 1rem;
+.row__team {
+    div h2 {
+        text-align: center;
+    }
+
+    .team__profpic {
+        border-radius: 5px;
+        height: 30vh;
+        margin: 1rem;
+    }
 }
 
-.team-row div h2 {
-	text-align: center;
+.portfolio .columns {
+  padding: 0.3rem;
 }
 
+
+.portfolio figure {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  overflow: hidden;
+  margin: -0.135em;
+  height: 300px;
+  background: #3085a3;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.portfolio figure img {
+  position: relative;
+  display: block;
+  min-height: 100%;
+  opacity: 0.5;
+}
+
+.portfolio figure figcaption {
+  padding: 2em;
+  color: #BFBFBF;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.portfolio figure figcaption,
+.portfolio figure a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+.portfolio figure a {
+  z-index: 1000;
+  text-indent: 200%;
+  white-space: nowrap;
+  font-size: 0;
+  opacity: 0;
+}
+
+.portfolio figure h2 {
+  word-spacing: -0.15em;
+  color: #fff;
+  font-weight: 300;
+}
+
+
+/*---------------*/
+/***** Bubba *****/
+/*---------------*/
+
+figure.effect-bubba {
+  background: #1D2939;
+}
+
+figure.effect-bubba img {
+  opacity: 0;
+  -webkit-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+
+figure.effect-bubba:hover img {
+  opacity: 0.4;
+}
+
+figure.effect-bubba figcaption::before,
+figure.effect-bubba figcaption::after {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  left: 30px;
+  content: '';
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+}
+
+
+
+figure.effect-bubba h2 {
+  padding-top: 15%;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: transform 0.35s;
+  -webkit-transform: translate3d(0,15px,0);
+  transform: translate3d(0,15px,0);
+}
+
+figure.effect-bubba:hover figcaption::before,
+figure.effect-bubba:hover figcaption::after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+figure.effect-bubba:hover h2,
+figure.effect-bubba:hover p {
+  opacity: 1;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+@media all and (max-width: 770px) {
+  figure.effect-bubba h2, p {
+    opacity: 1;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+  }
+}
