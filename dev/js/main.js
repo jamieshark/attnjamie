@@ -5,7 +5,7 @@
 	$(document).on('ready', function() {
 
 		// initialize foundation
-		$(document).foundation();
+		// $(document).foundation();
 
 		// copyright content
 		var favoriteThings = [
@@ -49,20 +49,24 @@
 		}($('#copyright'));
 		// do nav bar stuff
 
-		var toggleCurrentClass = function($li) {
-			$('.dot-nav li').removeClass('current');
-			$('.dot-nav li').find('a').blur();
-			$($li).addClass('current');
+		var toggleCurrentClass = function(li) {
+			var targetDot = $(li).find('.nav__dot');
+			var targetAnchor = $(li).find('.nav__anchor');
+			$('.nav__dot').removeClass('nav__dot--current');
+			$('.nav__anchor').removeClass('nav__anchor--current');
+			$('.nav__list-item').find('a').blur();
+			$(targetDot).addClass('nav__dot--current');
+			$(targetAnchor).addClass('nav__anchor--current');
 		};
 
 		var offsets = [];
 
 		// TODO: Some bugs with the middle section not firing current class
-		$('.content__section').each(function() {
+		$('.section__content').each(function() {
 			offsets.push($(this).offset().top - $('nav').height() * 2);
 		});
 
-		$('.dot-nav li').on('click', function(e) {
+		$('.nav__list-item').on('click', function(e) {
 			e.preventDefault();
 			var href = $(this).find('a').attr('href');
 	    $('html, body')
@@ -88,10 +92,10 @@
 
 			for (var i = 0; i < offsets.length; i++) {
 				if (windowPos > offsets[i] && windowPos < offsets[i+1]) {
-					toggleCurrentClass($('.dot-nav li')[i]);
+					toggleCurrentClass($('.nav__list-item')[i]);
 				}
 				if (windowPos + $(window).height() === $(document).height()) {
-		       		toggleCurrentClass($('.dot-nav li')[offsets.length-1]);
+		       		toggleCurrentClass($('.nav__list-item')[offsets.length-1]);
 		       	}
 			}
 

@@ -1,13 +1,15 @@
-.row__team {
-    div h2 {
-        text-align: center;
+.row {
+  &__name {
+    &--center {
+      text-align: center;
     }
+  }
 
-    .team__profpic {
-        border-radius: 5px;
-        height: 30vh;
-        margin: 1rem;
-    }
+  &__profile-img {
+      border-radius: 5px;
+      height: 30vh;
+      margin: 1rem;
+  }
 }
 
 .portfolio .columns {

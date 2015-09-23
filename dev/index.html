@@ -11,25 +11,25 @@
   <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
   <!-- Styles -->
   <link rel="stylesheet" href="css/normalize.min.css" />
-  <link rel="stylesheet" href="css/foundation.min.css" />
+  <!-- <link rel="stylesheet" href="css/foundation.min.css" /> -->
   <link rel="stylesheet" href="css/main.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" />
   <!-- JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
   <script type="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
-  <script src="js/foundation.min.js"></script>
+  <!--<script src="js/foundation.min.js"></script>-->
   <script src="js/main.min.js"></script>
 </head>
 <body>
   <header>
     <nav class="nav">
-    	<section class="nav__items">
-    		<ul class="dot-nav dot-nav--switch">
-    			<li class="current"><a href="#about">about<div class="dot"></div></a></li>
-	        <li><a href="#work">work<div class="dot"></div></a></li>
-	        <li><a href="#contact">contact<div class="dot"></div></a></li>
-    		</ul>
+      <section class="nav__items">
+        <ul class="nav__list">
+          <li class="current nav__list-item"><a href="#about" class="nav__anchor">about<div class="nav__dot"></div></a></li>
+          <li class="nav__list-item"><a href="#work" class="nav__anchor">work<div class="nav__dot"></div></a></li>
+          <li class="nav__list-item"><a href="#contact" class="nav__anchor">contact<div class="nav__dot"></div></a></li>
+        </ul>
       </section>
     </nav>
 	  <section class="hero hero-video">
@@ -44,7 +44,7 @@
 		  </div>
 		</section>
   </header>
-  <section id="about" class="content__section">
+  <section id="about" class="section__content">
 		<div class="row">
       <h2>This site</h2>
       <hr>
@@ -56,26 +56,26 @@
 	        </p>
 	  	</div>
 	  </div>
-    <div class="row row__team">
+    <div class="row row--team">
         <h2>Meet the "J" Team</h2>
         <hr>
         <div class="medium-4 columns">
-          <img class="team__profpic" src="./img/jeanie-bio-pic.jpg" />
-          <h2>Me</h2>
+          <img class="row__profile-img" src="./img/jeanie-bio-pic.jpg" />
+          <h2 class="row__name--center">Me</h2>
           <h3>// developer
           <br>// shark afficionado</h3>
           <p>Hey, I'm Jeanie. I almost always plays "Rogue" class and picks the fire Pokémon starter. I have a penchant for live music and cold brew coffee. My favorite spots in the Bay Area are <a href="https://goo.gl/maps/lOrpH" target="_blank">this wall</a> and <a href="https://goo.gl/maps/SGeVd" target="_blank">this exhibit</a>.</p>
         </div>
         <div class="medium-4 columns">
-          <img class="team__profpic" src="./img/jo.png" />
-          <h2>Jo</h2>
+          <img class="row__profile-img" src="./img/jo.png" />
+          <h2 class="row__name--center">Jo</h2>
           <h3>// moral support
           <br>// tasty beverage</h3>
           <p>Jo always gets the team through a tough spot and is probably the hottest of the team. She's always the first one to say, "We've got this, guys!" Her interests include mugs.</p>
         </div>
         <div class="medium-4 columns">
-          <img class="team__profpic" src="./img/jelly.png" />
-          <h2>Jelly</h2>
+          <img class="row__profile-img" src="./img/jelly.png" />
+          <h2 class="row__name--center">Jelly</h2>
           <h3>// pain-in-the-butt
           <br>// husky mix</h3>
           <p>Jelly doesn't do too much other than sit on laptops and lick your face.</p>
@@ -83,7 +83,9 @@
       </div>
     </div>
   </section>
-  <section id="work" class="content__section">
+  <section id="work" class="section__content">
+    <h2>Things I've Done</h2>
+    <hr>
 		<div class="row">
       In the past, I've worked at Razorfish, Northwestern University, and ZURB. I'm currently working on building some great things at Dropbox in San Francisco. You can find some of my work below.
 	  </div>
@@ -125,9 +127,13 @@
           </figure>
       </div>
     </div>
+    <h2>Things I Talk About</h2>
+    <hr>
     <div class="row talks-row">
-      I also talk a lot about the importance of diversity in tech and how to increase the access to STEM fields to young women. If you would like me to speak at a conference, reach out to me.
+      I also talk a lot about the importance of diversity in tech and how to increase the access to STEM fields to young women.
       <ul>
+        <li>Grace Hopper Conference</li>
+        <li>DreamForce</li>
         <li>GDI: Oakland</li>
         <li>Lesbians Who Tech Summit</li>
         <li>AngularJS</li>
@@ -136,7 +142,7 @@
       </ul>
     </div>
   </section>
-  <section id="contact" class="content__section">
+  <section id="contact" class="section__content">
 		<div class="row">
 	  </div>
   </section>
@@ -145,7 +151,7 @@
       <div class="medium-8 columns footer-info">
         <p>Jeanie Chung is a developer currently located in the Bay Area.</p>
         <i class="fi-heart"></i> <a href="mailto:hey@jeaniechung.com">Send love!</a>
-        <p id="copyright">© 2015 | Powered mainly by Blue Bottle coffee and choco tacos.</p>
+        <p id="copyright"></p>
       </div>
       <div class="medium-4 columns">
         <div class="social-links">
@@ -164,7 +170,7 @@
       </div>
     </div>
     <script>
-      $(document).foundation();
+      // $(document).foundation();
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

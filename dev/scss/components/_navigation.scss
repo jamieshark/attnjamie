@@ -1,4 +1,4 @@
-nav.nav {
+.nav {
 	z-index: 500;
 	height: auto;
 	width: 100%;
@@ -44,18 +44,48 @@ nav.nav {
 		}
 	}
 
-	a {
+	&__anchor {
 		font-family: 'Quicksand', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 		color: white;
 		position: relative;
 		display: inline-block;
 		text-align: center;
+		text-decoration: none;
+
 		&:hover {
 			color: #89bdd3 !important;
 		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 2rem;
+			left: 50%;
+			margin-left: -5px;
+			width: 1rem;
+			height: 1rem;
+			visibility: hidden;
+			opacity: 0;
+			background-color: #9ad3de;
+			border-radius: 50%;
+			-webkit-transform: translateY(-200%);
+			transform: translateY(-200%);
+			-webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s;
+			transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s;
+		}
+		&--current {
+			&:after {
+				opacity: 1;
+				visibility: visible;
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+				-webkit-transform: translateY(0%);
+				transform: translateY(0%);
+			}
+		}
 	}
 
-	ul {
+	&__list {
 		list-style-type: none;
 		cursor: default;
 		margin: .5rem 0 0 0;
@@ -72,9 +102,42 @@ nav.nav {
 		}
 	}
 
+	&__list-item {
+		position: relative;
+		margin: 0 2rem;
+		width: 1rem;
+		height: 1rem;
+		cursor: pointer;
+	}
+
+	&__dot {
+		position: absolute;
+		top: 2rem;
+		left: 50%;
+		margin-left: -5px;
+		width: 1rem;
+		height: 1rem;
+		outline: none;
+		border-radius: 50%;
+		background-color: #c44d48;
+		background-color: rgba(255, 255, 255, 0.3);
+		cursor: pointer;
+		-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease, background-color 0.5s ease;
+		transition: transform 0.5s ease, opacity 0.5s ease, background-color 0.5s ease;
+		&:focus {
+			outline: none;
+		}
+
+		&--current {
+			opacity: 0;
+			-webkit-transform: translateY(200%);
+			transform: translateY(200%);
+		}
+	}
+
 }
 
-.dot-nav li {
+/*.dot-nav li {
 	position: relative;
 	margin: 0 2rem;
 	width: 1rem;
@@ -98,14 +161,14 @@ nav.nav {
 
 .dot-nav li .dot:focus {
 	outline: none;
-}
-
+}*/
+/*
 .dot-nav--switch li {
 	width: 1rem;
 	height: 1rem;
 }
-
-.dot-nav--switch li a::after {
+*/
+/*.dot-nav--switch li a::after {
 	content: '';
 	position: absolute;
 	top: 2rem;
@@ -125,8 +188,8 @@ nav.nav {
 .dot-nav--switch li .dot {
 	-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease, background-color 0.5s ease;
 	transition: transform 0.5s ease, opacity 0.5s ease, background-color 0.5s ease;
-}
-
+}*/
+/*
 .dot-nav--switch li:hover .dot,
 .dot-nav--switch li .dot:focus,
 .dot-nav--switch li.current .dot {
@@ -146,7 +209,7 @@ nav.nav {
 	opacity: 0;
 	-webkit-transform: translateY(200%);
 	transform: translateY(200%);
-}
+}*/
 
 @media all and (max-width: 640px) {
   nav {
