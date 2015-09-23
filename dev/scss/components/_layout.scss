@@ -6,3 +6,46 @@ body {
         }
     }
 }
+
+.flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+
+    &__row {
+        display: flex;
+        flex: 1;
+        flex-flow: row wrap;
+    }
+
+    &__column {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+    }
+
+    &__block {
+        display: block;
+    }
+
+    &__item {
+        display: flex;
+        &--grow {
+            flex: 1 0 auto;
+        }
+        &--shrink {
+            flex: 0 1 auto;
+        }
+    }
+
+    &--fs {
+        align-items: flex-start;
+    }
+    &--fe {
+        align-items: flex-end;
+    }
+    &--center {
+        align-items: center;
+    }
+}
