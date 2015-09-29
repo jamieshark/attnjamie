@@ -7,13 +7,17 @@
 
   &__profile-img {
       border-radius: 5px;
-      height: 30vh;
-      margin: 1rem;
+      height: auto;
+      width: 100%;
   }
 }
 
-.portfolio .columns {
-  padding: 0.3rem;
+.portfolio .medium-6:nth-child(even) {
+  padding: 0.3rem 0 0.3rem 0.3rem;
+}
+
+.portfolio .medium-6:nth-child(odd) {
+  padding: 0.3rem 0.3rem 0.3rem 0;
 }
 
 
@@ -28,6 +32,7 @@
   text-align: center;
   cursor: pointer;
   width: 100%;
+  border-radius: 5px;
 }
 
 .portfolio figure img {

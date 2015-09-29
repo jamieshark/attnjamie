@@ -69,7 +69,7 @@ gulp.task('vendor-js', function() {
 
 gulp.task('images', function() {
 	 return gulp.src(dirs.devImages + '/**/*')
-    .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
+    .pipe(imagemin({ optimizationLevel: 1 }))
     .pipe(gulp.dest(dirs.distImages))
 });
 
