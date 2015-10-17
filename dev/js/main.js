@@ -61,21 +61,28 @@
 
 		var offsets = [];
 
-		// TODO: Some bugs with the middle section not firing current class
-		$('.section__content').each(function() {
-			offsets.push($(this).offset().top - $('nav').height() * 2);
-		});
+		$(window).on('resize load', function() {
+			offsets = [];
 
-		$('.nav__list-item').on('click', function(e) {
-			e.preventDefault();
-			var href = $(this).find('a').attr('href');
-	    $('html, body')
-	    	.animate({
-	       scrollTop: $(href).offset().top - $('nav').height()
-	    	}, 500);
+			$('.section__content').each(function() {
+				offsets.push($(this).offset().top - $('nav').height() * 2);
+			});
 
-	    return false;
-		});
+			$('.nav__list-item').on('click', function(e) {
+				e.preventDefault();
+				var href = $(this).find('a').attr('href');
+		    $('html, body')
+		    	.animate({
+		       scrollTop: $(href).offset().top - $('nav').height()
+		    	}, 500);
+
+		    return false;
+			});
+
+			offsets.push($(document).height());
+		})
+
+
 
 		$(window).on('load scroll', function() {
 			var windowPos = $(this).scrollTop(),
@@ -94,8 +101,8 @@
 				if (windowPos > offsets[i] && windowPos < offsets[i+1]) {
 					toggleCurrentClass($('.nav__list-item')[i]);
 				}
-				if (windowPos + $(window).height() === $(document).height()) {
-		       		toggleCurrentClass($('.nav__list-item')[offsets.length-1]);
+				if (windowPos + $(window).height() === offsets[offsets.length]) {
+		       		toggleCurrentClass($('.nav__list-item')[offsets.length-2]);
 		       	}
 			}
 
