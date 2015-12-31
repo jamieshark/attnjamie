@@ -59,7 +59,8 @@
 			$(targetAnchor).addClass('nav__anchor--current');
 		};
 
-		var offsets = [];
+		var offsets = [],
+			mobileAgent = false;
 
 		$(window).on('resize load', function() {
 			offsets = [];
@@ -80,6 +81,19 @@
 			});
 
 			offsets.push($(document).height());
+
+			// mobile stuff
+			if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+				mobileAgent = true;
+			}
+			if (mobileAgent || $(window).width() < 640) {
+				$('video').remove();
+			}
+			else {
+				if ($('video').length) {
+					$('video').attr('autoplay', true);
+				}
+			}
 		})
 
 
@@ -106,7 +120,6 @@
 		       	}
 			}
 
-			// mobile stuff
 			if ($(window).width() < 640) {
 				if ($navBar.offset().top > $heroText.offset().top - $navBar.height()*2) {
 					$heroText.fadeOut();

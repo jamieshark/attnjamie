@@ -1,4 +1,4 @@
-.hero-video video { 
+.hero-video video {
   margin: 0;
   padding: 0;
   position: absolute;
@@ -27,6 +27,8 @@
   height: 100vh;
   width: auto;
   overflow: hidden;
+  background: url('../img/kuroshio.png') no-repeat center;
+  background-size: cover;
   &:before {
     content: '';
 		position: absolute;
@@ -34,7 +36,7 @@
 		right: 0;
 		bottom: 0;
 		left: 0;
-		opacity: .8; 
+		opacity: .8;
   }
   .intro {
     padding: 3rem;

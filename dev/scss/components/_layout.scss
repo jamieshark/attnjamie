@@ -31,12 +31,15 @@ body {
 
     &__item {
         display: flex;
-        &--grow {
-            flex: 1 0 auto;
-        }
-        &--shrink {
-            flex: 0 1 auto;
-        }
+        flex: 1;
+    }
+
+    &--grow {
+        flex: 1 0 auto;
+    }
+
+    &--shrink {
+        flex: 0 1 auto;
     }
 
     &--fs {
