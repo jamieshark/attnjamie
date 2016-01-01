@@ -72,12 +72,12 @@
 			$('.nav__list-item').on('click', function(e) {
 				e.preventDefault();
 				var href = $(this).find('a').attr('href');
-		    $('html, body')
-		    	.animate({
-		       scrollTop: $(href).offset().top - $('nav').height()
-		    	}, 500);
+			    $('html, body')
+			    	.animate({
+			       scrollTop: $(href).offset().top - $('nav').height()
+			    	}, 500);
 
-		    return false;
+			    return false;
 			});
 
 			offsets.push($(document).height());
@@ -100,8 +100,8 @@
 
 		$(window).on('load scroll', function() {
 			var windowPos = $(this).scrollTop(),
-				heroHeight = $('.hero-video').height() - 100,
-				$heroText   = $('.intro.row'),
+				heroHeight = $('.hero__video').height() - 100,
+				$heroText   = $('.hero__content'),
 				$navBar		 = $('nav');
 
 			if (windowPos > heroHeight) {

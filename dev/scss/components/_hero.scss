@@ -1,72 +1,26 @@
-.hero-video video {
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-height: 100%;
-  min-width: 100%;
-  height: auto;
-  width: auto;
-  z-index: 0;
-  transform: translateX(-50%) translateY(-50%);
-  background-size: cover;
-  transition: 1s opacity;
-}
-
-.hero-video:after {
-  content: ' ';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,.2);
-}
 .hero {
-  height: 100vh;
-  width: auto;
-  overflow: hidden;
-  background: url('../img/kuroshio.png') no-repeat center;
-  background-size: cover;
-  &:before {
-    content: '';
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		opacity: .8;
-  }
-  .intro {
-    padding: 3rem;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  h1 {
-    color: #fff;
-    font-size: 1.5rem;
-    line-height: 1.5em;
-    letter-spacing: -0.025em;
-    font-weight: 300;
-    text-align: center;
-  }
-  p {
-    color: #fff;
-    line-height: 1.75em;
-    font-weight: 200;
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  @media only screen and (min-width: 40.063em) {
-    h1 {
-      padding-top: 4.5rem;
-      text-align: right;
-      font-size: 2.5rem;
+    overflow: hidden;
+    background: url('../img/kuroshio.png') no-repeat center;
+    background-size: cover;
+
+    &__video {
+        object-fit: cover;
+        z-index: 0;
+        background-size: cover;
+        transition: 1s opacity;
     }
-    p {
-      text-align: right;
+
+    &__content {
+        padding: 3rem;
+        position: absolute;
+        z-index: 50;
+        top: 30%;
+        left: 30%;
+        p {
+            color: #fff;
+            line-height: 1.75em;
+            font-weight: 200;
+            margin-bottom: 2rem;
+        }
     }
-  }
 }

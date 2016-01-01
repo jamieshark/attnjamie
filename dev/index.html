@@ -3,15 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Jeanie Chung | Developer</title>
+  <title>Jamie Chung | Developer</title>
   <link href="img/favicon.ico" rel="icon" type="image/x-icon" />
-  <meta name="description" content="A website about Jeanie Chung, a developer in the Bay Area.">
+  <meta name="description" content="A website about Jamie Chung, a developer in the Bay Area.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
   <!-- Styles -->
   <link rel="stylesheet" href="css/normalize.min.css" />
-  <link rel="stylesheet" href="css/foundation.min.css" />
   <link rel="stylesheet" href="css/main.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" />
   <!-- JS -->
@@ -20,8 +19,8 @@
   <script type="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
   <script src="js/main.min.js"></script>
 </head>
-<body>
-  <header>
+<body class="flex-grid flex-grid__column">
+  <header class="flex-grid__row">
     <nav class="nav">
       <section class="nav__items">
         <ul class="nav__list">
@@ -31,54 +30,34 @@
         </ul>
       </section>
     </nav>
-	  <section class="hero hero-video">
-	    <video loop muted>
+    <div class="hero__content flex-grid__row">
+        <p>
+          “if<br>
+          the ocean<br>
+          can calm itself,<br>
+          so can you.<br>
+          we<br>
+          are both<br>
+          salt water<br>
+          mixed with<br>
+          air.”<br>
+          -nayyirah waheed
+        </p>
+    </div>
+	  <section class="hero flex-grid__row flex-grid--center">
+	    <video class="hero__video flex-grid__item flex-grid--grow" loop muted>
 				<source src="./img/kuroshio.mp4" type="video/mp4">
 			</video>
-		  <div class="row intro">
-		    <div class="small-centered medium-uncentered medium-6 large-7 columns">
-          <p>“if<br>
-            the ocean<br>
-            can calm itself,<br>
-            so can you.<br>
-            we<br>
-            are both<br>
-            salt water<br>
-            mixed with<br>
-            air.”<br>
-            -nayyirah waheed</p>
-		    </div>
-		  </div>
 		</section>
   </header>
-  <section id="about" class="section__content">
-    <div class="row row--team">
-      <div class="medium-12 columns">
-        <h2>squad</h2>
-        <hr>
-      </div>
-      <div class="medium-4 columns">
-        <img class="row__profile-img" src="./img/jeanie-bio-pic.jpg" />
+  <section id="about" class="flex-grid__row flex-grid--sb section__content">
+      <div class="flex-grid__item flex-grid--shrink">
+        <img class="row__profile-img" src="./img/jamieshark.jpg" />
         <h2 class="row__name--center">Me</h2>
         <h3>// developer
         <br>// shark afficionado</h3>
-        <p>Hey, I'm Jeanie. I almost always plays "Rogue" class and picks the fire Pokémon starter. I have a penchant for live music and cold brew coffee. My favorite spots in the Bay Area are <a href="https://goo.gl/maps/lOrpH" target="_blank">this wall</a> and <a href="https://goo.gl/maps/SGeVd" target="_blank">this exhibit</a>.</p>
+        <p>Hey, I'm Jamie. I almost always plays "Rogue" class and picks the fire Pokémon starter. I have a penchant for live music and cold brew coffee. My favorite spots in the Bay Area are <a href="https://goo.gl/maps/lOrpH" target="_blank">this wall</a> and <a href="https://goo.gl/maps/SGeVd" target="_blank">this exhibit</a>.</p>
       </div>
-      <div class="medium-4 columns">
-        <img class="row__profile-img" src="./img/jo.png" />
-        <h2 class="row__name--center">Jo</h2>
-        <h3>// moral support
-        <br>// tasty beverage</h3>
-        <p>Jo always gets the team through a tough spot and is probably the hottest of the team. She's always the first one to say, "We've got this, guys!" Her interests include mugs.</p>
-      </div>
-      <div class="medium-4 columns">
-        <img class="row__profile-img" src="./img/jelly.png" />
-        <h2 class="row__name--center">Jelly</h2>
-        <h3>// pain-in-the-butt
-        <br>// husky mix</h3>
-        <p>Jelly contributes by leaving noseprints on computer screens.</p>
-      </div>
-    </div>
   </section>
   <section id="work" class="section__content">
 		<div class="row">
