@@ -41,7 +41,7 @@ gulp.task('styles', function() {
     .pipe(gulp.dest(dirs.distStyles))
 });
 
-gulp.task('autoprefixer', function() {
+gulp.task('autoprefixer', ['styles'], function() {
   return gulp.src(dirs.distStyles + '/*.css')
     .pipe(autoprefixer({
         browsers: ['> 1%','last 2 versions', 'Firefox ESR', 'Opera 12.1'],
@@ -52,7 +52,7 @@ gulp.task('autoprefixer', function() {
 
 // Vendor Styles
 gulp.task('vendor-styles', function() {
-	return gulp.src(['./node_modules/foundation-sites/css/foundation.min.css','./node_modules/foundation-sites/css/normalize.min.css'])
+	return gulp.src(['./node_modules/foundation-sites/css/normalize.min.css'])
     .pipe(gulp.dest(dirs.distStyles))
 });
 
@@ -91,7 +91,7 @@ gulp.task('html', function() {
 // Default Task
 
 gulp.task('default', ['clean:dist', 'serve'], function() {
-	gulp.start('styles', 'vendor-styles', 'js', 'vendor-js', 'images', 'html', 'watch');
+	gulp.start('styles', 'autoprefixer', 'vendor-styles', 'js', 'vendor-js', 'images', 'html', 'watch');
 });
 
 // Serve
@@ -107,8 +107,7 @@ gulp.task('serve', function() {
 // Watch
 
 gulp.task('watch', function() {
-  gulp.watch(dirs.devStyles + '/**/*.scss', ['styles']);
-  gulp.watch(dirs.distStyles + '/*.css', ['autoprefixer']);
+  gulp.watch(dirs.devStyles + '/**/*.scss', ['autoprefixer']);
   gulp.watch(dirs.devJS + '/*.js', ['js']);
   gulp.watch(dirs.dev + '/*.html', ['html']);
   gulp.watch(dirs.devImages + '/**/*', ['images']);
