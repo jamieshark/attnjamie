@@ -1,8 +1,8 @@
 .flex {
     display: flex;
-    flex-wrap: wrap;
     margin: 0;
     padding: 0;
+    /*flex-shrink: 0;*/
 
     /* parent behaviors */
     &__row {
@@ -14,7 +14,7 @@
     &__column {
         display: flex;
         flex: 1;
-        flex-direction: column;
+        flex-flow: column wrap;
 
         @media ($SMALL_BELOW) {
             flex: 1 0 90%;

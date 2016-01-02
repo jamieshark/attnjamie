@@ -1,10 +1,10 @@
-
 header {
 	margin-bottom: 1rem;
 }
 
 body {
 	overflow-x: hidden;
+    height: 100%;
     background-color: #f3f5f8;
     font-family: 'Raleway', 'Open Sans', sans-serif;
 }
@@ -13,6 +13,10 @@ h1 {
     font-weight: 300;
     font-size: 2em;
     line-height: 1;
+
+    @media ($SMALL_BELOW) {
+        margin: .5rem 0;
+    }
 }
 
 h2 {

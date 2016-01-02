@@ -35,10 +35,6 @@ gulp.task('clean:dist', function(cb) {
 
 gulp.task('styles', function() {
   return gulp.src(dirs.devStyles + '/**/*.scss', { style: 'expanded' })
-    .pipe(autoprefixer({
-      browsers: ['> 1%','last 2 versions', 'Firefox ESR', 'Opera 12.1'],
-      cascade: false
-    }))
     .pipe(sass().on('error', sass.logError))
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
@@ -112,6 +108,7 @@ gulp.task('serve', function() {
 
 gulp.task('watch', function() {
   gulp.watch(dirs.devStyles + '/**/*.scss', ['styles']);
+  gulp.watch(dirs.distStyles + '/*.css', ['autoprefixer']);
   gulp.watch(dirs.devJS + '/*.js', ['js']);
   gulp.watch(dirs.dev + '/*.html', ['html']);
   gulp.watch(dirs.devImages + '/**/*', ['images']);
