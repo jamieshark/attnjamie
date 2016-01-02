@@ -4,11 +4,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Jamie Chung | Developer</title>
-  <link href="img/favicon.ico" rel="icon" type="image/x-icon" />
+  <link href="img/favicon.png" rel="shortcut icon" type="image/png" />
   <meta name="description" content="A website about Jamie Chung, a developer in the Bay Area.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Rubik:400,900' rel='stylesheet' type='text/css'>
   <!-- Styles -->
   <link rel="stylesheet" href="css/normalize.min.css" />
   <link rel="stylesheet" href="css/main.min.css" />
@@ -19,88 +20,193 @@
   <script type="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
   <script src="js/main.min.js"></script>
 </head>
-<body class="flex-grid flex-grid__column">
-  <header class="flex-grid__row">
-    <nav class="nav">
-      <section class="nav__items">
-        <ul class="nav__list">
-          <li class="current nav__list-item"><a href="#about" class="nav__anchor">about<div class="nav__dot"></div></a></li>
-          <li class="nav__list-item"><a href="#work" class="nav__anchor">work<div class="nav__dot"></div></a></li>
-          <li class="nav__list-item"><a href="#contact" class="nav__anchor">contact<div class="nav__dot"></div></a></li>
-        </ul>
-      </section>
-    </nav>
-    <div class="hero__content flex-grid__row">
-        <p>
-          “if<br>
-          the ocean<br>
-          can calm itself,<br>
-          so can you.<br>
-          we<br>
-          are both<br>
-          salt water<br>
-          mixed with<br>
-          air.”<br>
-          -nayyirah waheed
-        </p>
-    </div>
-	  <section class="hero flex-grid__row flex-grid--center">
-	    <video class="hero__video flex-grid__item flex-grid--grow" loop muted>
-				<source src="./img/kuroshio.mp4" type="video/mp4">
-			</video>
-		</section>
-  </header>
-  <section id="about" class="flex-grid__row flex-grid--sb section__content">
-      <div class="flex-grid__item flex-grid--shrink">
-        <img class="row__profile-img" src="./img/jamieshark.jpg" />
-        <h2 class="row__name--center">Me</h2>
-        <h3>// developer
-        <br>// shark afficionado</h3>
-        <p>Hey, I'm Jamie. I almost always plays "Rogue" class and picks the fire Pokémon starter. I have a penchant for live music and cold brew coffee. My favorite spots in the Bay Area are <a href="https://goo.gl/maps/lOrpH" target="_blank">this wall</a> and <a href="https://goo.gl/maps/SGeVd" target="_blank">this exhibit</a>.</p>
-      </div>
-  </section>
-  <section id="work" class="section__content">
-		<div class="row">
-      <div class="medium-12 columns">
-      <h2>Things I've Done</h2>
-      <hr>
-      <p>
-        I'm currently working on building some great things at Dropbox in San Francisco.
-        In the past, I've worked at Razorfish, Northwestern University, and ZURB. You can find some of my work below or take a look at my <a href="https://www.dropbox.com/s/cozchuo7l1n5be4/ResumeJeanie.pdf" target="_blank">résumé</a>.
-      </p>
-      </div>
-	  </div>
-    <div class="row row--portfolio">
-      <div class="medium-12 columns">
-        <div class="medium-6 columns">
-            <figure class="portfolio__item portfolio__item--hover">
+<body class="flex flex__column">
+    <header class="flex__row">
+        <nav class="nav">
+            <section class="nav__items">
+            <ul class="nav__list">
+                <li class="current nav__list-item"><a href="#intro" class="nav__anchor">_ intro<div class="nav__dot"></div></a></li>
+                <li class="nav__list-item"><a href="#work" class="nav__anchor">_ work<div class="nav__dot"></div></a></li>
+                <li class="nav__list-item"><a href="#contact" class="nav__anchor">_ contact<div class="nav__dot"></div></a></li>
+            </ul>
+            </section>
+        </nav>
+        <div class="hero__content flex__row">
+            <p>
+            “if<br>
+            the ocean<br>
+            can calm itself,<br>
+            so can you.<br>
+            we<br>
+            are both<br>
+            salt water<br>
+            mixed with<br>
+            air.”<br>
+            -nayyirah waheed
+            </p>
+        </div>
+        <section class="hero flex__row flex--center">
+            <video class="hero__video flex__item flex--grow" loop muted>
+        		<source src="./img/kuroshio.mp4" type="video/mp4">
+        	</video>
+        </section>
+    </header>
+    <section id="intro" class="section__content flex__column">
+        <div class="flex__row section__row section__header">
+            <h1>_ intro</h1>
+        </div>
+        <div class="flex__row section__row flex--sb flex--center about__jamie">
+            <div class="flex__column">
+                <h1 class="flex__item about__greeting">
+                    Hey, I'm Jamie
+                </h1>
+                <div class="about__content flex__item flex__column">
+                    <h3 class="about__subtitle">
+                        // developer<br>
+                        // shark afficionado
+                    </h3>
+                    <p>I almost always play "Rogue" class and pick the fire Pokémon starter. I have a penchant for live music and cold brew coffee. My favorite spots in the Bay Area are <a href="https://goo.gl/maps/lOrpH" target="_blank">this wall</a> and <a href="https://goo.gl/maps/SGeVd" target="_blank">this exhibit</a>. I identify as genderqueer and use <strong>they/them</strong> pronouns.</p>
+                    <p>I was born in Seoul, raised in Chicago, schooled in St. Louis, and now reside in Oakland with my dog - Jelly.</p>
+                </div>
+            </div>
+            <div class="flex__item flex--shrink">
+                <img class="about__image" src="./img/jamieshark.jpg" />
+            </div>
+        </div>
+        <div class="flex__row section__row flex--sb flex--center about__jelly">
+            <div class="flex__item flex--shrink">
+                <img class="about__image" src="./img/jelly.png" />
+            </div>
+            <div class="flex__item flex__column">
+                <h1 class="flex__item about__greeting">
+                    & this is Jelly.
+                </h1>
+                <div class="about__content flex__item flex__column">
+                    <h3 class="about__subtitle">
+                        // Border Collie mix<br>
+                        // peanut butter afficionado
+                    </h3>
+                    <p>Jelly generally lays around and looks cute. She occasionally places her nose on computer screens and is convinced that it helps move the creative process along.</p>
+                    <p>It doesn't.</p>
+                </div>
+            </div>
+        </div>
+        <div class="flex__row section__row flex--sa flex--center about__oakland">
+            <h1 class="flex__item about__greeting">
+                We live in
+            </h1>
+            <div class="about__oakland__container">
+                <div class="about__oakland__underline">
+                </div>
+                <a href="#" class="about__oakland__letter">o</a>
+                <a href="#" class="about__oakland__letter">a</a>
+                <a href="#" class="about__oakland__letter">k</a>
+                <a href="#" class="about__oakland__letter">l</a>
+                <a href="#" class="about__oakland__letter">a</a>
+                <a href="#" class="about__oakland__letter">n</a>
+                <a href="#" class="about__oakland__letter">d</a>
+            </div>
+
+            <!-- <div class="flex__item flex--grow about__oakland__container">
+                <span class="about__oakland__letter">
+                O
+                    <a href="http://sogoreate-landtrust.com/shuumi-land-tax/" target="_blank">
+                    <div class="about__oakland__org">
+                        Opportunity for healing
+                    </div>
+                    </a>
+                </span>
+                <span class="about__oakland__letter">
+                A
+                    <a href="http://blacklivesmatter.com/" target="_blank">
+                    <div class="about__oakland__org">
+                        Activism for solidarity
+                    </div>
+                    </a>
+                </span>
+                <span class="about__oakland__letter">
+                K
+                    <a href="http://www.cjjc.org/" target="_blank">
+                    <div class="about__oakland__org">
+                        Knowledge for justice
+                    </div>
+                    </a>
+                </span>
+                <span class="about__oakland__letter">
+                L
+                    <a href="http://www.peacockrebellion.org/" target="_blank">
+                    <div class="about__oakland__org">
+                        Liberation
+                        <p>for community</p>
+                    </div>
+                    </a>
+                </span>
+                <span class="about__oakland__letter">
+                A
+                    <a href="http://www.artactivistnia.com/" target="_blank">
+                    <div class="about__oakland__org">
+                        Art
+                        <p>for inspiration</p>
+                    </div>
+                    </a>
+                </span>
+                <span class="about__oakland__letter">
+                N
+                    <a href="http://phatbeetsproduce.org/" target="_blank">
+                    <div class="about__oakland__org">
+                        Nutrition
+                        <p>for equity</p>
+                    </div>
+                    </a>
+                </span>
+                <span class="about__oakland__letter">
+                D
+                    <a href="http://www.qulturecollective.com/" target="_blank">
+                    <div class="about__oakland__org">
+                        Devotion
+                        <p>for visibility</p>
+                    </div>
+                    </a>
+                </span>
+            </div> -->
+            <div class="flex__item flex--shrink">
+                <img class="about__oakland__logo" src="./img/oakland_logo_black.png" />
+            </div>
+        </div>
+    </section>
+    <section id="work" class="section__content flex__column">
+        <div class="flex__row section__row section__header">
+            <h1>_ work</h1>
+        </div>
+        <div class="flex__row section__row">
+            <p>
+                I'm currently working on building some great things at Dropbox in San Francisco.
+                In the past, I've worked at Razorfish, Northwestern University, and ZURB. You can find some of my work below or take a look at my <a href="https://www.dropbox.com/s/cozchuo7l1n5be4/ResumeJeanie.pdf" target="_blank">résumé</a>.
+            </p>
+        </div>
+        <div class="flex__row section__row portfolio__container">
+            <figure class="portfolio__item">
               <img class="portfolio__image" src="./img/juggle-yeti.svg" />
               <figcaption class="portfolio__caption">
                 <h2 class="portfolio__title">Foundation for Sites</h2>
                 <a class="portfolio__anchor" target="_blank" href="https://github.com/zurb/foundation"></a>
               </figcaption>
             </figure>
-        </div>
-        <div class="medium-6 columns">
-            <figure class="portfolio__item portfolio__item--hover">
+            <figure class="portfolio__item">
               <img class="portfolio__image" src="./img/yeti-hero.svg" />
               <figcaption class="portfolio__caption">
                 <h2 class="portfolio__title">Foundation for Apps</h2>
                 <a class="portfolio__anchor" target="_blank" href="https://github.com/zurb/foundation-apps"></a>
               </figcaption>
             </figure>
-        </div>
-        <div class="medium-6 columns">
-            <figure class="portfolio__item portfolio__item--hover">
+            <figure class="portfolio__item">
               <img class="portfolio__image" src="./img/inky-point.svg" />
               <figcaption class="portfolio__caption">
                 <h2 class="portfolio__title">Foundation for Emails</h2>
                 <a class="portfolio__anchor" target="_blank" href="https://github.com/zurb/foundation-emails"></a>
               </figcaption>
             </figure>
-        </div>
-        <div class="medium-6 columns">
-            <figure class="portfolio__item portfolio__item--hover">
+            <figure class="portfolio__item">
               <img class="portfolio__image" src="./img/rainbow.png" />
               <figcaption class="portfolio__caption">
                 <h2 class="portfolio__title">Rainbow Ipsum</h2>
@@ -108,77 +214,71 @@
               </figcaption>
             </figure>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="medium-12 columns">
-        <h2>Etc.</h2>
-        <hr>
-        Outside of work, I lead the chapter of Girl Develop It in Oakland. Additionally, you'll find me attending or speaking at events like the ones listed below. I really love discussing the importance of diversity and inclusion in the tech industry or innovative usage of front-end technologies, so if you'd like to chat about that, feel free to reach out.
-        <ul>
-          <li>Grace Hopper Conference</li>
-          <li>DreamForce</li>
-          <li>GDI: Oakland</li>
-          <li>Lesbians Who Tech Summit</li>
-          <li>AngularJS</li>
-          <li>JS Summit http://environmentsforhumans.com/2015/javascript-summit/</li>
-          <li>Waffle JS</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  <section id="contact" class="section__content">
-		<div class="row">
-      <h1>CONTACT ME HERERERERERE</h1>
-        <div class="social-links">
-          <ul>
-              <li>
-                <i class="fi-social-github"></i><a target="_blank" href="https://github.com/jeanieshark">  Github</a>
-              </li>
-              <li>
-                <i class="fi-social-twitter"></i><a target="_blank" href="https://twitter.com/jeanieshark">  Twitter</a>
-              </li>
-              <li>
-                <i class="fi-social-linkedin"></i><a target="_blank" href="https://www.linkedin.com/profile/view?id=129993573">  LinkedIn</a>
-              </li>
-          </ul>
+        <div class="flex__column speaking__container">
+            <h2>Speaking Engagements</h2>
+            <div class="flex__item speaking__list">
+                <span class="speaking__year">2016</span>
+                <p>I will be speaking here:</p>
+                <ul>
+                    <li>2016: LWT SF Summit - Emcee</li>
+                    <li>2016: LWT SF Summit - Mainstage speaker</li>
+                </ul>
+                <p>I've spoken here:</p>
+            </div>
+            <div class="flex__item speaking__list">
+                <span class="speaking__year">2015</span>
+                <p>I will be speaking here:</p>
+                <ul>
+                    <li>2015: Facebook - Speaker Series | Interviewer/Facilitator</li>
+                    <li>2015: LWT New York Summit - Coding Bootcamp | Panelist</li>
+                    <li>2015: Dropbox - Fireside with Kara Swisher | Interviewer/Facilitator</li>
+                    <li>2015: DreamForce - Women in Tech: DevZone Welcome Meetup | Host</li>
+                    <li>2015: JS Summit - Developing a Responsive Framework with AngularJS | Speaker</li>
+                    <li>2015: Grace Hopper Conference - Dropbox Careers | Recruiter</li>
+                    <li>2015: Waffle JS - Zen and the Art of Coding | Speaker</li>
+                </ul>
+            </div>
         </div>
-	  </div>
-  </section>
-  <footer class="text-center">
-    <div class="row">
-      <div class="medium-8 columns footer-info">
-        <p>Jeanie Chung is a developer currently located in the Bay Area. <p>The video in the background is taken by Jon Rawlinson and displays the Okinawa Churaumi Aquarium.</p></p>
-        <i class="fi-heart"></i> <a href="mailto:hey@jeaniechung.com">Send love!</a>
-        <p id="copyright"></p>
-      </div>
-      <div class="medium-4 columns">
-        <div class="social-links">
-            <ul>
-                <li>
-                	<i class="fi-social-github"></i><a target="_blank" href="https://github.com/jeanieshark">  Github</a>
-                </li>
-                <li>
-                	<i class="fi-social-twitter"></i><a target="_blank" href="https://twitter.com/jeanieshark">  Twitter</a>
-                </li>
-                <li>
-                	<i class="fi-social-linkedin"></i><a target="_blank" href="https://www.linkedin.com/profile/view?id=129993573">  LinkedIn</a>
-                </li>
-            </ul>
+        <div class="flex__row section__row">
+            <h2>Inclusion</h2>
+            <hr>
+            <p>Outside of work, I'm involved with Girl Develop It: Oakland and Lesbians Who Tech. Additionally, you'll find me attending or speaking at events like the ones listed below. I really love discussing the importance of diversity and inclusion in the tech industry and what that even looks like. If you'd like to chat about that, feel free to reach out.</p>
         </div>
-      </div>
-    </div>
-    <script>
-      // $(document).foundation();
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    </section>
+    <section id="contact" class="section__content flex__column">
+        <div class="flex__row section__row">
+            <h2>Contact</h2>
+<!--             <div>
+                <ul>
+                    <li>
+                        <i class="fi-social-github"></i><a target="_blank" href="https://github.com/attnjamie">  Github</a>
+                    </li>
+                    <li>
+                        <i class="fi-social-twitter"></i><a target="_blank" href="https://twitter.com/attnjamie">  Twitter</a>
+                    </li>
+                    <li>
+                        <i class="fi-social-linkedin"></i><a target="_blank" href="https://www.linkedin.com/profile/view?id=129993573">  LinkedIn</a>
+                    </li>
+                </ul>
+            </div> -->
+        </div>
+    </section>
+    <footer class="flex__column">
+        <div class="footer-info">
+            <p>Jamie Chung is a developer currently located in the Bay Area. <p>The video in the background is taken by Jon Rawlinson and displays the Okinawa Churaumi Aquarium.</p></p>
+            <i class="fi-heart"></i> <a href="mailto:hey@jeaniechung.com">Send love!</a>
+            <p id="copyright"></p>
+        </div>
+        <script>
+        // $(document).foundation();
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-53912752-1', 'auto');
-      ga('send', 'pageview');
-    </script>
-  </footer>
-
+        ga('create', 'UA-53912752-1', 'auto');
+        ga('send', 'pageview');
+        </script>
+    </footer>
 </body>
 </html>

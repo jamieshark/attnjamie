@@ -1,13 +1,4 @@
-body {
-    .content {
-        &__section {
-            margin: 1rem 2rem;
-            padding: 1rem;
-        }
-    }
-}
-
-.flex-grid {
+.flex {
     display: flex;
     flex-wrap: wrap;
     margin: 0;
@@ -40,6 +31,10 @@ body {
 
     &--sb {
         justify-content: space-between;
+    }
+
+    &--sa {
+        justify-content: space-around;
     }
 
     /* child behaviors */

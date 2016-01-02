@@ -1,12 +1,7 @@
 'use strict';
 
 (function() {
-
 	$(document).on('ready', function() {
-
-		// initialize foundation
-		// $(document).foundation();
-
 		// copyright content
 		var favoriteThings = [
 			"cold brew coffee",
@@ -25,7 +20,9 @@
 			"stouts",
 			"porters",
 			"grapefruit juice",
-			"matcha"
+			"matcha",
+			"dismantling the patriarchy",
+			"challenging heteronormativity"
 		];
 
 		// do the Knuth shuffle
@@ -41,6 +38,7 @@
 
 		  return array;
 		}
+
 		var insertCopyright = function(targetEl) {
 			shuffle(favoriteThings);
 			var baseStr = "© " + new Date().getFullYear() + " | Powered mainly by " + favoriteThings[0] + " and " + favoriteThings[1] + ".";
@@ -48,7 +46,6 @@
 			$(targetEl).html(baseStr);
 		}($('#copyright'));
 		// do nav bar stuff
-
 		var toggleCurrentClass = function(li) {
 			var targetDot = $(li).find('.nav__dot');
 			var targetAnchor = $(li).find('.nav__anchor');
@@ -129,6 +126,35 @@
 				}
 			}
 		});
+
+		var $oakUnderline = $('.about__oakland__underline');
+		var calculateUnderlinePosition = function(letterIndex) {
+			var roughPercentage = (letterIndex / 7) * 100;
+			if (letterIndex === 6) {
+				roughPercentage = 100;
+			}
+			return Math.ceil(roughPercentage) + "%";
+		}
+
+		$('.about__oakland__letter').hover(
+			function() {
+				var currentLetter = $(this);
+				var currentLetterIdx = $('.about__oakland__letter').index(this);
+
+				$('.about__oakland__letter').not(currentLetter).addClass('about__oakland__letter--invert');
+				$(this).addClass('about__oakland__letter--focus');
+				var underlinePosition = calculateUnderlinePosition(currentLetterIdx);
+				$('.about__oakland__underline').css('left', underlinePosition);
+				// var org = $(this).find('.about__oakland__org');
+				// org.css('opacity', 1);
+			},
+			function() {
+				$('.about__oakland__letter').removeClass('about__oakland__letter--invert')
+				$(this).removeClass('about__oakland__letter--focus')
+				// var org = $(this).find('.about__oakland__org');
+				// org.css('opacity', 0);
+			}
+		);
 	});
 
 })();
