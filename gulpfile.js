@@ -35,12 +35,24 @@ gulp.task('clean:dist', function(cb) {
 
 gulp.task('styles', function() {
   return gulp.src(dirs.devStyles + '/**/*.scss', { style: 'expanded' })
-    .pipe(autoprefixer('last 2 version'))
+    .pipe(autoprefixer({
+      browsers: ['> 1%','last 2 versions', 'Firefox ESR', 'Opera 12.1'],
+      cascade: false
+    }))
     .pipe(sass().on('error', sass.logError))
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
     .pipe(gulp.dest(dirs.distStyles))
 });
+
+gulp.task('autoprefixer', function() {
+  return gulp.src(dirs.distStyles + '/*.css')
+    .pipe(autoprefixer({
+        browsers: ['> 1%','last 2 versions', 'Firefox ESR', 'Opera 12.1'],
+        cascade: false
+    }))
+    .pipe(gulp.dest(dirs.distStyles));
+})
 
 // Vendor Styles
 gulp.task('vendor-styles', function() {
