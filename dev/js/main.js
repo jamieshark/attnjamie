@@ -41,7 +41,7 @@
 
 		var insertCopyright = function(targetEl) {
 			shuffle(favoriteThings);
-			var baseStr = "© " + new Date().getFullYear() + " | Powered mainly by " + favoriteThings[0] + " and " + favoriteThings[1] + ".";
+			var baseStr = "© " + new Date().getFullYear() + " | Turning " + favoriteThings[0] + " and " + favoriteThings[1] + " into code.";
 
 			$(targetEl).html(baseStr);
 		}($('#copyright'));
@@ -146,7 +146,7 @@
 			    return false;
 			});
 
-			offsets.push($(document).height());
+			// offsets.push($(document).height());
 
 			// mobile stuff
 			if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -179,8 +179,8 @@
 				if (windowPos > offsets[i] && windowPos < offsets[i+1]) {
 					toggleCurrentClass($('.nav__list-item')[i]);
 				}
-				if (windowPos + $(window).height() === offsets[offsets.length]) {
-		       		toggleCurrentClass($('.nav__list-item')[offsets.length-2]);
+		       	if (windowPos + $(window).height() === $(document).height()) {
+		       		toggleCurrentClass($('.nav__list-item')[offsets.length-1]);
 		       	}
 			}
 
