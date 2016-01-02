@@ -13,7 +13,7 @@
   <!-- Styles -->
   <link rel="stylesheet" href="css/normalize.min.css" />
   <link rel="stylesheet" href="css/main.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
@@ -24,11 +24,11 @@
     <header class="flex__row">
         <nav class="nav">
             <section class="nav__items">
-            <ul class="nav__list">
-                <li class="current nav__list-item"><a href="#intro" class="nav__anchor">_ intro<div class="nav__dot"></div></a></li>
-                <li class="nav__list-item"><a href="#work" class="nav__anchor">_ work<div class="nav__dot"></div></a></li>
-                <li class="nav__list-item"><a href="#contact" class="nav__anchor">_ contact<div class="nav__dot"></div></a></li>
-            </ul>
+                <ul class="nav__list">
+                    <li class="current nav__list-item"><a href="#intro" class="nav__anchor">_ intro<div class="nav__dot"></div></a></li>
+                    <li class="nav__list-item"><a href="#work" class="nav__anchor">_ work<div class="nav__dot"></div></a></li>
+                    <li class="nav__list-item"><a href="#contact" class="nav__anchor">_ contact<div class="nav__dot"></div></a></li>
+                </ul>
             </section>
         </nav>
         <div class="hero__content flex__row">
@@ -69,12 +69,12 @@
                     <p>I was born in Seoul, raised in Chicago, schooled in St. Louis, and now reside in Oakland with my dog - Jelly.</p>
                 </div>
             </div>
-            <div class="flex__item flex--shrink">
+            <div class="flex__item flex--shrink about__asset">
                 <img class="about__image" src="./img/jamieshark.jpg" />
             </div>
         </div>
         <div class="flex__row section__row flex--sb flex--center about__jelly">
-            <div class="flex__item flex--shrink">
+            <div class="flex__item flex--shrink about__asset">
                 <img class="about__image" src="./img/jelly.png" />
             </div>
             <div class="flex__item flex__column">
@@ -91,13 +91,11 @@
                 </div>
             </div>
         </div>
-        <div class="flex__row section__row flex--sa flex--center about__oakland">
-            <h1 class="flex__item about__greeting">
+        <div class="flex__column section__row flex--sa flex--center about__oakland">
+            <h1 class="flex__item flex--shrink about__greeting">
                 We live in
             </h1>
-            <div class="about__oakland__container">
-                <div class="about__oakland__underline">
-                </div>
+            <div class="flex__item flex--grow about__oakland__container">
                 <a href="#" class="about__oakland__letter">o</a>
                 <a href="#" class="about__oakland__letter">a</a>
                 <a href="#" class="about__oakland__letter">k</a>
@@ -106,71 +104,18 @@
                 <a href="#" class="about__oakland__letter">n</a>
                 <a href="#" class="about__oakland__letter">d</a>
             </div>
-
-            <!-- <div class="flex__item flex--grow about__oakland__container">
-                <span class="about__oakland__letter">
-                O
-                    <a href="http://sogoreate-landtrust.com/shuumi-land-tax/" target="_blank">
-                    <div class="about__oakland__org">
-                        Opportunity for healing
-                    </div>
-                    </a>
-                </span>
-                <span class="about__oakland__letter">
-                A
-                    <a href="http://blacklivesmatter.com/" target="_blank">
-                    <div class="about__oakland__org">
-                        Activism for solidarity
-                    </div>
-                    </a>
-                </span>
-                <span class="about__oakland__letter">
-                K
-                    <a href="http://www.cjjc.org/" target="_blank">
-                    <div class="about__oakland__org">
-                        Knowledge for justice
-                    </div>
-                    </a>
-                </span>
-                <span class="about__oakland__letter">
-                L
-                    <a href="http://www.peacockrebellion.org/" target="_blank">
-                    <div class="about__oakland__org">
-                        Liberation
-                        <p>for community</p>
-                    </div>
-                    </a>
-                </span>
-                <span class="about__oakland__letter">
-                A
-                    <a href="http://www.artactivistnia.com/" target="_blank">
-                    <div class="about__oakland__org">
-                        Art
-                        <p>for inspiration</p>
-                    </div>
-                    </a>
-                </span>
-                <span class="about__oakland__letter">
-                N
-                    <a href="http://phatbeetsproduce.org/" target="_blank">
-                    <div class="about__oakland__org">
-                        Nutrition
-                        <p>for equity</p>
-                    </div>
-                    </a>
-                </span>
-                <span class="about__oakland__letter">
-                D
-                    <a href="http://www.qulturecollective.com/" target="_blank">
-                    <div class="about__oakland__org">
-                        Devotion
-                        <p>for visibility</p>
-                    </div>
-                    </a>
-                </span>
-            </div> -->
-            <div class="flex__item flex--shrink">
+        </div>
+        <div class="flex__row section__row flex--sa flex--center about__oakland">
+            <div class="flex__item flex__column flex--center flex--shrink about__oakland__container">
                 <img class="about__oakland__logo" src="./img/oakland_logo_black.png" />
+                <a class="about__oakland__org" href="#" target="_blank">
+                    <div class="flex__column flex--center">
+                        <span class="about__oakland__description">Opportunity for healing</span>
+                        <span class="about__oakland__name">Sogorea Te' Land Trust</span>
+                    </div>
+                </a>
+                <div class="about__oakland__underline">
+                </div>
             </div>
         </div>
     </section>
@@ -181,7 +126,7 @@
         <div class="flex__row section__row">
             <p>
                 I'm currently working on building some great things at Dropbox in San Francisco.
-                In the past, I've worked at Razorfish, Northwestern University, and ZURB. You can find some of my work below or take a look at my <a href="https://www.dropbox.com/s/cozchuo7l1n5be4/ResumeJeanie.pdf" target="_blank">résumé</a>.
+                In the past, I've worked at ZURB, Northwestern University, and Razorfish. You can find some of my work below.
             </p>
         </div>
         <div class="flex__row section__row portfolio__container">
@@ -203,7 +148,7 @@
               <img class="portfolio__image" src="./img/inky-point.svg" />
               <figcaption class="portfolio__caption">
                 <h2 class="portfolio__title">Foundation for Emails</h2>
-                <a class="portfolio__anchor" target="_blank" href="https://github.com/zurb/foundation-emails"></a>
+                <a class="portfolio__anchor" target="_blank" href="https://github.com/zurb/inky-parse"></a>
               </figcaption>
             </figure>
             <figure class="portfolio__item">
@@ -216,61 +161,75 @@
         </div>
         <div class="flex__column speaking__container">
             <h2>Speaking Engagements</h2>
-            <div class="flex__item speaking__list">
-                <span class="speaking__year">2016</span>
-                <p>I will be speaking here:</p>
-                <ul>
-                    <li>2016: LWT SF Summit - Emcee</li>
-                    <li>2016: LWT SF Summit - Mainstage speaker</li>
+            <div class="flex__item flex__row speaking__list">
+                <span class="flex__item flex--shrink speaking__year">2016</span>
+                <ul class="flex__item flex__column fa-ul">
+                    <li><i class="fa-li fa fa-angle-right"></i>LWT SF Summit - Emcee</li>
+                    <li><i class="fa-li fa fa-angle-right"></i>LWT SF Summit - Mainstage speaker</li>
                 </ul>
-                <p>I've spoken here:</p>
             </div>
-            <div class="flex__item speaking__list">
-                <span class="speaking__year">2015</span>
-                <p>I will be speaking here:</p>
-                <ul>
-                    <li>2015: Facebook - Speaker Series | Interviewer/Facilitator</li>
-                    <li>2015: LWT New York Summit - Coding Bootcamp | Panelist</li>
-                    <li>2015: Dropbox - Fireside with Kara Swisher | Interviewer/Facilitator</li>
-                    <li>2015: DreamForce - Women in Tech: DevZone Welcome Meetup | Host</li>
-                    <li>2015: JS Summit - Developing a Responsive Framework with AngularJS | Speaker</li>
-                    <li>2015: Grace Hopper Conference - Dropbox Careers | Recruiter</li>
-                    <li>2015: Waffle JS - Zen and the Art of Coding | Speaker</li>
+            <div class="flex__item flex__row speaking__list">
+                <span class="flex__item flex--shrink speaking__year">2015</span>
+                <ul class="flex__item flex__column fa-ul">
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Dropbox - Fireside with Kara Swisher | Interviewer/Facilitator</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Facebook - Speaker Series | Interviewer/Facilitator</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Grace Hopper Conference - Dropbox Careers | Recruiter</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>LWT New York Summit - Coding Bootcamp | Panelist</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>Waffle JS - Zen and the Art of Coding | Speaker</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>DreamForce - Women in Tech: DevZone Welcome Meetup | Host</li>
+                    <li><i class="fa-li fa fa-angle-double-right"></i>JS Summit - Developing a Responsive Framework with AngularJS | Speaker</li>
                 </ul>
             </div>
         </div>
         <div class="flex__row section__row">
             <h2>Inclusion</h2>
-            <hr>
-            <p>Outside of work, I'm involved with Girl Develop It: Oakland and Lesbians Who Tech. Additionally, you'll find me attending or speaking at events like the ones listed below. I really love discussing the importance of diversity and inclusion in the tech industry and what that even looks like. If you'd like to chat about that, feel free to reach out.</p>
+            <p>Outside of work, I'm involved with Girl Develop It: Oakland, Lesbians Who Tech, and Diversity Advocates. I love discussing the importance of diversity and inclusion in the tech industry and what that even looks like. If you'd like to chat about that, feel free to reach out.</p>
         </div>
     </section>
     <section id="contact" class="section__content flex__column">
-        <div class="flex__row section__row">
-            <h2>Contact</h2>
-<!--             <div>
-                <ul>
-                    <li>
-                        <i class="fi-social-github"></i><a target="_blank" href="https://github.com/attnjamie">  Github</a>
-                    </li>
-                    <li>
-                        <i class="fi-social-twitter"></i><a target="_blank" href="https://twitter.com/attnjamie">  Twitter</a>
-                    </li>
-                    <li>
-                        <i class="fi-social-linkedin"></i><a target="_blank" href="https://www.linkedin.com/profile/view?id=129993573">  LinkedIn</a>
-                    </li>
-                </ul>
-            </div> -->
+        <div class="flex__row section__header">
+            <h1>_ contact</h1>
+        </div>
+        <div class="flex__row flex--sb contact__content">
+            <div class="flex__item flex__column flex--shrink contact__container">
+                <a target="_blank" href="mailto:jamie@attnjamie.com">
+                    <div class="flex__item contact__icon">
+                        <i class="fa fa-send fa-2x"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="flex__item flex__column flex--shrink contact__container">
+                <a target="_blank" href="https://github.com/attnjamie">
+                    <div class="flex__item contact__icon">
+                        <i class="fa fa-github-alt fa-2x"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="flex__item flex__column flex--shrink contact__container">
+                <a target="_blank" href="https://twitter.com/attnjamie">
+                    <div class="flex__item contact__icon">
+                        <i class="fa fa-twitter fa-2x"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="flex__item flex__column flex--shrink contact__container">
+                <a target="_blank" href="https://www.linkedin.com/profile/view?id=129993573">
+                    <div class="flex__item contact__icon">
+                        <i class="fa fa-linkedin fa-2x"></i>
+                    </div>
+                </a>
+            </div>
         </div>
     </section>
-    <footer class="flex__column">
-        <div class="footer-info">
-            <p>Jamie Chung is a developer currently located in the Bay Area. <p>The video in the background is taken by Jon Rawlinson and displays the Okinawa Churaumi Aquarium.</p></p>
-            <i class="fi-heart"></i> <a href="mailto:hey@jeaniechung.com">Send love!</a>
+    <footer>
+        <div class="flex__column section__content">
+            <p>Jamie Chung is a developer currently located in the Bay Area.
+            </p>
+            <p>The video in the background is taken by Jon Rawlinson and displays the Okinawa Churaumi Aquarium.</p>
             <p id="copyright"></p>
+            <i class="flex__item scum fa fa-rebel"></i>
         </div>
         <script>
-        // $(document).foundation();
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

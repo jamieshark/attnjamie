@@ -1,9 +1,16 @@
-$black-border: 1px solid #000;
+@import "media-queries";
+
+$black-border: 2px solid #000;
 
 .section {
     &__content {
         margin: auto;
-        max-width: 75%;
+        width: 75%;
+
+        @media ($SMALL_BELOW) {
+            margin: 2rem auto;
+            width: 90%;
+        }
     }
 
     &__row {
@@ -17,22 +24,45 @@ $black-border: 1px solid #000;
 }
 
 .about {
+    &__asset {
+        @media ($SMALL_BELOW) {
+            order: -1;
+            margin-right: 1rem;
+        }
+    }
+
     &__image {
         border-radius: 50%;
         height: 300px;
         width: 300px;
         margin-right: 2rem;
+
+        @media ($SMALL_BELOW) {
+            margin: 0 0 1rem 0;
+            height: 150px;
+            width: 150px;
+        }
     }
 
     &__greeting {
         font-family: 'Rubik', sans-serif;
         font-size: 3rem;
         font-weight: 600;
-        margin: 0;
+        margin: 0 2rem 0 0;
+
+        @media ($MEDIUM_BELOW) {
+            align-self: center;
+            font-size: 2rem;
+            margin: 0 0 2rem 0;
+        }
     }
 
     &__content {
         width: 75%;
+
+        @media ($MEDIUM_BELOW) {
+            width: 100%;
+        }
     }
 
     &__subtitle {
@@ -41,55 +71,123 @@ $black-border: 1px solid #000;
     }
 
     &__jamie, &__jelly, &__oakland {
-        padding: 1rem;
+        padding: 3rem;
         margin: 0;
+
+        @media ($SMALL_BELOW) {
+            padding: 0;
+        }
     }
 
     &__jamie {
         border-left: $black-border;
         border-bottom: $black-border;
+
+        @media ($SMALL_BELOW) {
+            justify-content: center !important;
+            margin: 1rem 0;
+            border-left: none;
+        }
     }
 
     &__jelly {
         border-right: $black-border;
         border-bottom: $black-border;
+
+        @media ($SMALL_BELOW) {
+            justify-content: center !important;
+            border-right: none;
+        }
     }
 
     &__oakland {
         align-self: stretch;
         align-items: center;
-        padding: 0 3rem;
+        padding-bottom: 0;
+        border-left: $black-border;
 
-/*        &__letter {
-            position: relative;
-            transform: translate(0, 0);
-            transition: .25s all linear;
-            font-family: 'Rubik', sans-serif;
-            font-size: 3rem;
-            cursor: pointer;
-
-            &--focus {
-                transform: translate(0, -5px);
-            }
+        @media ($SMALL_BELOW) {
+            border-left: none;
+            margin-top: 2rem;
         }
-
-        &__org {
-            opacity: 0;
-            transition: .5s all linear;
-            z-index: 50;
-            background-color: gray;
-            position: absolute;
-            top: 0;
-
-            p {
-                font-size: 1rem;
-            }
-        }*/
 
         &__logo {
             height: 100px;
             padding: 1rem 3rem;
-            border-left: $black-border;
+
+            @media ($SMALL_BELOW) {
+                padding: 1rem 4rem;
+            }
+        }
+
+        &__container {
+            position: relative;
+            font-size: 6em;
+            line-height: 1;
+            color: #c9c9c9;
+            font-weight: 900;
+            text-transform: uppercase;
+            -webkit-transition: color 0.3s;
+            transition: color 0.3s;
+
+            @media ($LARGE_BELOW) {
+                font-size: 3rem;
+            }
+        }
+
+        &__underline {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 4rem;
+            border-top: $black-border;
+            background-color: #f3f5f8;
+            bottom: -4rem;
+            left: 0;
+            -webkit-transition: -webkit-all 0.5s;
+            transition: all 0.5s;
+            -webkit-transition-timing-function: cubic-bezier(0.2,1,0.3,1);
+            transition-timing-function: cubic-bezier(0.2,1,0.3,1);
+        }
+
+        &__letter {
+            color: #c9c9c9;
+            letter-spacing: 5px;
+            position: relative;
+            cursor: pointer;
+            text-decoration: none;
+            font-family: 'Rubik', sans-serif;
+            -webkit-transform: perspective(1000px) rotate3d(0,1,0,0deg);
+            transform: perspective(1000px) rotate3d(0,1,0,0deg);
+            -webkit-transition: -webkit-transform 0.5s, color 0.5s;
+            transition: transform 0.5s, color 0.5s;
+            -webkit-transition-timing-function: cubic-bezier(0.2,1,0.3,1);
+            transition-timing-function: cubic-bezier(0.2,1,0.3,1);
+
+            &--invert {
+                color: #fff;
+                -webkit-transform: perspective(1000px) rotate3d(0,1,0,180deg);
+                transform: perspective(1000px) rotate3d(0,1,0,180deg);
+            }
+
+            &--focus, &:focus {
+                color: #000;
+            }
+        }
+
+        &__org {
+            text-decoration: none;
+            font-size: 1rem;
+            transform: translateY(150%);
+            -webkit-transition: -webkit-transform 0.5s;
+            transition: transform 0.5s;
+            -webkit-transition-timing-function: cubic-bezier(0.2,1,0.3,1);
+            transition-timing-function: cubic-bezier(0.2,1,0.3,1);
+
+        }
+
+        &__name {
+            text-transform: none;
         }
     }
 }
@@ -102,14 +200,19 @@ $black-border: 1px solid #000;
 
     &__item {
         display: flex;
-        flex: 1 0 50%; /* for two items per row */
+        flex: 1 0 48%; /* for two items per row */
         margin: 0;
         position: relative;
         z-index: 1;
         overflow: hidden;
         height: 300px;
         background: #1D2939;
+        border: 1px solid #c9c9c9;
         cursor: pointer;
+
+        @media ($SMALL_BELOW) {
+            flex: 1 0 100%;
+        }
 
         &:hover {
             img {
@@ -127,10 +230,6 @@ $black-border: 1px solid #000;
                 -webkit-transform: translate3d(0,0,0);
                 transform: translate3d(0,0,0);
             }
-        }
-
-        &:nth-child(even) {
-            background: #c9c9c9;
         }
     }
 
@@ -202,79 +301,55 @@ $black-border: 1px solid #000;
     }
 
     &__year {
-        position: relative;
+        max-height: 1rem;
+        align-self: center;
         -webkit-transform: rotate(270deg);
         -moz-transform: rotate(270deg);
         -o-transform: rotate(270deg);
         transform: rotate(270deg);
+
+        @media ($SMALL_BELOW) {
+            margin-left: 2.14285714em;
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
     }
 }
 
-.about__oakland__container {
-    position: relative;
-    font-size: 8em;
-    line-height: 1;
-    color: #9e9ba4;
-    display: inline-block;
-    color: #E3E8DC;
-    font-weight: 900;
-    text-transform: uppercase;
-    overflow: hidden;
-    padding: 10px 0;
-    -webkit-transition: color 0.3s;
-    transition: color 0.3s;
+.contact {
+    &__content {
+        padding: 3rem 0;
+    }
+
+    &__icon {
+        margin: auto;
+        height: 3.5rem;
+        width: 3.5rem;
+        background-color: #9ad3de;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+
+        .fa {
+            color: #fff;
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
 }
 
-.link--nukun:hover {
-    color: #1e1a1b;
-}
-
-.about__oakland__underline {
-    content: '';
-    position: absolute;
-    width: 13%;
-    height: 5px;
-    background: #E3E8DC;
-    bottom: 0;
-    left: 50%;
-    -webkit-transition: -webkit-all 0.5s;
-    transition: all 0.5s;
-    -webkit-transition-timing-function: cubic-bezier(0.2,1,0.3,1);
-    transition-timing-function: cubic-bezier(0.2,1,0.3,1);
-}
-
-.link--nukun::after {
-    background: #ACD07A;
-    -webkit-transform: translate3d(-300%,0,0) scale3d(0,1,1);
-    transform: translate3d(-300%,0,0) scale3d(0,1,1);
-}
-
-.link--nukun:hover::before {
-    -webkit-transform: translate3d(300%,0,0) scale3d(0,1,1);
-    transform: translate3d(300%,0,0) scale3d(0,1,1);
-}
-
-.link--nukun:hover::after {
-    -webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
-    transform: translate3d(0,0,0) scale3d(1,1,1);
-}
-
-.about__oakland__letter {
-    color: #E3E8DC;
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-    text-decoration: none;
-    -webkit-transform: perspective(1000px) rotate3d(0,1,0,0deg);
-    transform: perspective(1000px) rotate3d(0,1,0,0deg);
-    -webkit-transition: -webkit-transform 0.5s, color 0.5s;
-    transition: transform 0.5s, color 0.5s;
-    -webkit-transition-timing-function: cubic-bezier(0.2,1,0.3,1);
-    transition-timing-function: cubic-bezier(0.2,1,0.3,1);
-}
-
-.about__oakland__letter--invert {
+footer {
+    width: 100%;
+    padding: 3rem 0;
+    background-color: rgba(0,0,0,.8);
     color: #fff;
-    -webkit-transform: perspective(1000px) rotate3d(0,1,0,180deg);
-    transform: perspective(1000px) rotate3d(0,1,0,180deg);
+
+    .scum {
+        align-self: flex-end;
+    }
+
 }

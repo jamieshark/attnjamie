@@ -1,3 +1,5 @@
+@import "media-queries";
+
 .nav {
 	z-index: 500;
 	height: auto;
@@ -13,12 +15,17 @@
 	top: 0;
 	left: 0;
 
-	.nav__items {
+	&__items {
 		display: flex;
-		flex: 0 0 auto;
-		min-width: 25%;
+		flex: 0 1 auto;
+		width: 25%;
 		margin: 1rem 2rem;
+		padding-bottom: 2rem;
 		transition: .5s all linear;
+
+		@media ($MEDIUM_BELOW) {
+            width: 100%;
+        }
 	}
 
 	&--even {
@@ -26,20 +33,9 @@
 		justify-content: center;
 		transition: .5s all linear;
 
-		.nav__items {
-			margin: 0 2rem 2rem 2rem;
-			flex: 1 0 auto;
-		}
-		ul, .nav__items {
-			transition: .5s all linear;
-			min-width: 50%;
-		}
-
-		li {
-			justify-content: center;
-			a {
-				display: flex;
-				flex: 0 auto;
+		.nav {
+			&__items {
+				width: 75%;
 			}
 		}
 	}
@@ -86,19 +82,18 @@
 	}
 
 	&__list {
+		padding: 0;
+		margin: 0;
 		list-style-type: none;
 		cursor: default;
-		margin: .5rem 0 0 0;
-		width: 10%;
 		display: flex;
 		flex: 1 0 auto;
-		align-self: flex-last;
+		justify-content: space-between;
 		transition: .5s;
 		li {
-			margin: 1rem;
+			margin: 0;
 			width: auto;
 			display: flex;
-			flex: 1 0 auto;
 		}
 	}
 
@@ -136,8 +131,3 @@
 
 }
 
-@media all and (max-width: 640px) {
-  nav {
-  	justify-content: center !important;
-  }
-}

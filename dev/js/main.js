@@ -45,6 +45,7 @@
 
 			$(targetEl).html(baseStr);
 		}($('#copyright'));
+
 		// do nav bar stuff
 		var toggleCurrentClass = function(li) {
 			var targetDot = $(li).find('.nav__dot');
@@ -55,6 +56,74 @@
 			$(targetDot).addClass('nav__dot--current');
 			$(targetAnchor).addClass('nav__anchor--current');
 		};
+
+		var $oakUnderline = $('.about__oakland__underline');
+		var oakLinks = [
+			{
+				'description': "Opportunity for healing",
+				'name': "Sogorea Te' Land Trust",
+				'href': 'http://sogoreate-landtrust.com/shuumi-land-tax/'
+			},
+			{
+				'description': 'Activism for solidarity',
+				'name': 'Black Lives Matter',
+				'href': 'http://blacklivesmatter.com/'
+			},
+			{
+				'description': 'Knowledge for justice',
+				'name': 'Causa Justa :: Just Cause',
+				'href': 'http://www.cjjc.org/'
+			},
+			{
+				'description': 'Liberation for community',
+				'name': 'Peacock Rebellion',
+				'href': 'http://www.peacockrebellion.org/'
+			},
+			{
+				'description': 'Art for inspiration',
+				'name': 'Nia King',
+				'href': 'http://www.artactivistnia.com/'
+			},
+			{
+				'description': 'Nutrition for equity',
+				'name': 'Phat Beets Produce',
+				'href': 'http://phatbeetsproduce.org/'
+			},
+			{
+				'description': 'Devotion for visibility',
+				'name': 'Qulture Collective',
+				'href': 'http://www.qulturecollective.com/'
+			}
+		];
+
+		var showMatchingOrg = function(oaklandLetter) {
+			var $currentLetter = $(oaklandLetter);
+			var currentLetterIdx = $('.about__oakland__letter').index(oaklandLetter);
+			var $orgLink = $('.about__oakland__org');
+
+			$('.about__oakland__letter').not($currentLetter).addClass('about__oakland__letter--invert');
+			$(oaklandLetter).addClass('about__oakland__letter--focus');
+
+			$orgLink.attr('href', oakLinks[currentLetterIdx]['href']);
+			$orgLink.find('.about__oakland__description').text(oakLinks[currentLetterIdx]['description']);
+			$orgLink.find('.about__oakland__name').text(oakLinks[currentLetterIdx]['name']);
+			$orgLink.css('transform', 'translateY(-5px)');
+		}
+
+		$('.about__oakland__letter').hover(
+			function() {
+				showMatchingOrg(this);
+			},
+			function() {
+				$('.about__oakland__letter').removeClass('about__oakland__letter--invert')
+				$(this).removeClass('about__oakland__letter--focus')
+			}
+		);
+
+		$('.about__oakland__letter').on('click', function(e) {
+			e.preventDefault();
+			showMatchingOrg(this);
+		});
 
 		var offsets = [],
 			mobileAgent = false;
@@ -91,13 +160,11 @@
 					$('video').attr('autoplay', true);
 				}
 			}
-		})
-
-
+		});
 
 		$(window).on('load scroll', function() {
 			var windowPos = $(this).scrollTop(),
-				heroHeight = $('.hero__video').height() - 100,
+				heroHeight = $('.hero').height() - 100,
 				$heroText   = $('.hero__content'),
 				$navBar		 = $('nav');
 
@@ -117,44 +184,13 @@
 		       	}
 			}
 
-			if ($(window).width() < 640) {
-				if ($navBar.offset().top > $heroText.offset().top - $navBar.height()*2) {
-					$heroText.fadeOut();
-				}
-				if (windowPos === 0) {
-					$heroText.fadeIn();
-				}
+			if ($navBar.offset().top > heroHeight * (2/3)) {
+				$heroText.fadeOut();
+			}
+			else {
+				$heroText.fadeIn();
 			}
 		});
-
-		var $oakUnderline = $('.about__oakland__underline');
-		var calculateUnderlinePosition = function(letterIndex) {
-			var roughPercentage = (letterIndex / 7) * 100;
-			if (letterIndex === 6) {
-				roughPercentage = 100;
-			}
-			return Math.ceil(roughPercentage) + "%";
-		}
-
-		$('.about__oakland__letter').hover(
-			function() {
-				var currentLetter = $(this);
-				var currentLetterIdx = $('.about__oakland__letter').index(this);
-
-				$('.about__oakland__letter').not(currentLetter).addClass('about__oakland__letter--invert');
-				$(this).addClass('about__oakland__letter--focus');
-				var underlinePosition = calculateUnderlinePosition(currentLetterIdx);
-				$('.about__oakland__underline').css('left', underlinePosition);
-				// var org = $(this).find('.about__oakland__org');
-				// org.css('opacity', 1);
-			},
-			function() {
-				$('.about__oakland__letter').removeClass('about__oakland__letter--invert')
-				$(this).removeClass('about__oakland__letter--focus')
-				// var org = $(this).find('.about__oakland__org');
-				// org.css('opacity', 0);
-			}
-		);
 	});
 
 })();
