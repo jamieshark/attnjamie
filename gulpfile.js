@@ -10,6 +10,7 @@ var gulp 				 = require('gulp'),
     rename 			 = require('gulp-rename'),
     concat 			 = require('gulp-concat'),
     connect 		 = require('gulp-connect'),
+    sftp         = require('gulp-sftp'),
     rimraf 			 = require('rimraf');
 
 // Directories
@@ -103,6 +104,17 @@ gulp.task('serve', function() {
     livereload: true
   });
 });
+
+// Deploy to FTP via SSH
+gulp.task('deploy', function() {
+  return gulp.src(dirs.dist + '/*')
+    .pipe(sftp({
+      host: 'attnjamie.com',
+      auth: 'privateKey',
+      remotePath: 'public_html'
+    }));
+})
+
 
 // Watch
 

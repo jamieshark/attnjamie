@@ -146,7 +146,7 @@
 			    return false;
 			});
 
-			// offsets.push($(document).height());
+			offsets.push($(document).height());
 
 			// mobile stuff
 			if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -180,7 +180,7 @@
 					toggleCurrentClass($('.nav__list-item')[i]);
 				}
 		       	if (windowPos + $(window).height() === $(document).height()) {
-		       		toggleCurrentClass($('.nav__list-item')[offsets.length-1]);
+		       		toggleCurrentClass($('.nav__list-item')[offsets.length-2]);
 		       	}
 			}
 
