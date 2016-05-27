@@ -1,6 +1,7 @@
 @import "media-queries";
 
 $black-border: 2px solid #000;
+$grey-border: 1px solid #aaa;
 
 .section {
     &__content {
@@ -47,7 +48,7 @@ $black-border: 2px solid #000;
     &__greeting {
         font-family: 'Rubik', sans-serif;
         font-size: 3rem;
-        font-weight: 600;
+        font-weight: lighter;
         margin: 0 2rem 0 0;
 
         @media ($MEDIUM_BELOW) {
@@ -80,8 +81,8 @@ $black-border: 2px solid #000;
     }
 
     &__jamie {
-        border-left: $black-border;
-        border-bottom: $black-border;
+        border-left: $grey-border;
+        border-bottom: $grey-border;
 
         @media ($SMALL_BELOW) {
             justify-content: center !important;
@@ -91,8 +92,8 @@ $black-border: 2px solid #000;
     }
 
     &__jelly {
-        border-right: $black-border;
-        border-bottom: $black-border;
+        border-right: $grey-border;
+        border-bottom: $grey-border;
 
         @media ($SMALL_BELOW) {
             justify-content: center !important;
@@ -103,8 +104,8 @@ $black-border: 2px solid #000;
     &__oakland {
         align-self: stretch;
         align-items: center;
-        padding-bottom: 0;
-        border-left: $black-border;
+        padding: 0;
+        border-left: $grey-border;
 
         @media ($SMALL_BELOW) {
             border-left: none;
@@ -193,6 +194,68 @@ $black-border: 2px solid #000;
         &__name {
             text-transform: none;
         }
+    }
+}
+
+.oakland {
+    &__tiles {
+        width: 100%;
+        height: 75vh;
+
+        .flex__item {
+            border: 1px solid black;
+        }
+    }
+
+    &__column, &__single {
+        display: flex;
+        flex-flow: column;
+
+        flex: 1 0 auto;
+    }
+
+    &__squares {
+        flex-flow: row wrap;
+        flex: 1 0 auto;
+    }
+
+    &__single, &__duple, &__quad {
+        cursor: pointer;
+        background-color: #000;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        // font color
+        color: #fff;
+        text-transform: uppercase;
+        &:hover {
+            background-color: red;
+        }
+    }
+
+    &__single {
+        flex: 1 0 auto;
+    }
+
+    &__duple {
+        flex: 1 0 25%;
+    }
+
+    &__quad {
+        flex: 1 0 15%;
+    }
+
+    &__org {
+        color: #000;
+        letter-spacing: .1em;
+        font-size: 1.25em;
+        font-family: Quicksand, "Helvetica Neue", sans-serif;
+        font-weight: 300;
+    }
+
+    &__letter {
+        color: #fff;
     }
 }
 
@@ -291,9 +354,7 @@ $black-border: 2px solid #000;
         color: #fff;
         font-family: Quicksand, "Helvetica Neue", sans-serif;
         font-weight: 300;
-        -webkit-transition: -webkit-transform 0.35s;
         transition: transform 0.35s;
-        -webkit-transform: translate3d(0,15px,0);
         transform: translate3d(0,15px,0);
     }
 }

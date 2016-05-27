@@ -128,6 +128,21 @@
 		var offsets = [],
 			mobileAgent = false;
 
+		$(window).on('load', function() {
+			// don't show video on mobile
+			if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+				mobileAgent = true;
+			}
+			if (mobileAgent || $(window).width() < 640) {
+				$('video').remove();
+			}
+			else {
+				if ($('video').length) {
+					$('video').attr('autoplay', true);
+				}
+			}
+		});
+
 		$(window).on('resize load', function() {
 			offsets = [];
 
@@ -147,19 +162,6 @@
 			});
 
 			offsets.push($(document).height());
-
-			// mobile stuff
-			if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-				mobileAgent = true;
-			}
-			if (mobileAgent || $(window).width() < 640) {
-				$('video').remove();
-			}
-			else {
-				if ($('video').length) {
-					$('video').attr('autoplay', true);
-				}
-			}
 		});
 
 		$(window).on('load scroll', function() {
