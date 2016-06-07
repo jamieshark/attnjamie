@@ -15,6 +15,7 @@ $grey-border: 1px solid #aaa;
     }
 
     &__row {
+        width: 100%;
         align-self: center;
         margin: 1rem 0;
     }
@@ -71,7 +72,7 @@ $grey-border: 1px solid #aaa;
         font-weight: 400;
     }
 
-    &__jamie, &__jelly, &__oakland {
+    &__jamie, &__jelly {
         padding: 3rem;
         margin: 0;
 
@@ -100,183 +101,32 @@ $grey-border: 1px solid #aaa;
             border-right: none;
         }
     }
-
-    &__oakland {
-        align-self: stretch;
-        align-items: center;
-        padding: 0;
-        border-left: $grey-border;
-
-        @media ($SMALL_BELOW) {
-            border-left: none;
-            margin-top: 2rem;
-        }
-
-        &__logo {
-            height: 100px;
-            padding: 1rem 3rem;
-
-            @media ($SMALL_BELOW) {
-                padding: 1rem 4rem;
-            }
-        }
-
-        &__container {
-            position: relative;
-            font-size: 6em;
-            line-height: 1;
-            color: #c9c9c9;
-            font-weight: 900;
-            text-transform: uppercase;
-            -webkit-transition: color 0.3s;
-            transition: color 0.3s;
-
-            @media ($LARGE_BELOW) {
-                font-size: 3rem;
-            }
-
-            @media ($SMALL_BELOW) {
-                flex: 1 !important;
-            }
-        }
-
-        &__underline {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 4rem;
-            border-top: $black-border;
-            background-color: #f3f5f8;
-            bottom: -4rem;
-            left: 0;
-            -webkit-transition: -webkit-all 0.5s;
-            transition: all 0.5s;
-            -webkit-transition-timing-function: cubic-bezier(0.2,1,0.3,1);
-            transition-timing-function: cubic-bezier(0.2,1,0.3,1);
-        }
-
-        &__letter {
-            color: #c9c9c9;
-            letter-spacing: 5px;
-            position: relative;
-            cursor: pointer;
-            text-decoration: none;
-            font-family: 'Rubik', sans-serif;
-            -webkit-transform: perspective(1000px) rotate3d(0,1,0,0deg);
-            transform: perspective(1000px) rotate3d(0,1,0,0deg);
-            -webkit-transition: -webkit-transform 0.5s, color 0.5s;
-            transition: transform 0.5s, color 0.5s;
-            -webkit-transition-timing-function: cubic-bezier(0.2,1,0.3,1);
-            transition-timing-function: cubic-bezier(0.2,1,0.3,1);
-
-            &--invert {
-                color: #fff;
-                -webkit-transform: perspective(1000px) rotate3d(0,1,0,180deg);
-                transform: perspective(1000px) rotate3d(0,1,0,180deg);
-            }
-
-            &--focus, &:focus {
-                color: #000;
-            }
-        }
-
-        &__org {
-            text-decoration: none;
-            font-size: 1rem;
-            transform: translateY(150%);
-            -webkit-transition: -webkit-transform 0.5s;
-            transition: transform 0.5s;
-            -webkit-transition-timing-function: cubic-bezier(0.2,1,0.3,1);
-            transition-timing-function: cubic-bezier(0.2,1,0.3,1);
-
-        }
-
-        &__name {
-            text-transform: none;
-        }
-    }
 }
 
-.oakland {
-    &__tiles {
-        width: 100%;
-        height: 75vh;
+.work {
+    &__column {
 
-        .flex__item {
-            border: 1px solid black;
-        }
-    }
-
-    &__column, &__single {
-        display: flex;
-        flex-flow: column;
-
-        flex: 1 0 auto;
-    }
-
-    &__squares {
-        flex-flow: row wrap;
-        flex: 1 0 auto;
-    }
-
-    &__single, &__duple, &__quad {
-        cursor: pointer;
-        background-color: #000;
-        align-items: center;
-        display: flex;
-        justify-content: center;
-
-        // font color
-        color: #fff;
-        text-transform: uppercase;
-        &:hover {
-            background-color: red;
-        }
-    }
-
-    &__single {
-        flex: 1 0 auto;
-    }
-
-    &__duple {
-        flex: 1 0 25%;
-    }
-
-    &__quad {
-        flex: 1 0 15%;
-    }
-
-    &__org {
-        color: #000;
-        letter-spacing: .1em;
-        font-size: 1.25em;
-        font-family: Quicksand, "Helvetica Neue", sans-serif;
-        font-weight: 300;
-    }
-
-    &__letter {
-        color: #fff;
     }
 }
 
 .portfolio {
     &__container {
         align-self: stretch;
-        justify-content: center;
+        justify-content: space-between;
         flex: 1;
         max-width: 100%;
+        background: #1D2939;
     }
 
     &__item {
         display: flex;
-        flex: 1 0 48%; /* for two items per row */
+        flex: 0 1 auto;
         margin: 0;
         position: relative;
         z-index: 1;
         overflow: hidden;
-        height: 300px;
+        height: auto;
         background: #1D2939;
-        border: 1px solid #c9c9c9;
         cursor: pointer;
 
         @media ($SMALL_BELOW) {
