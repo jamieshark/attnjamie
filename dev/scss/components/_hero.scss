@@ -16,8 +16,8 @@
 
     &--loaded {
         &::after {
-            background-color: rgba(0,0,0,0.15);
-            transition: background-color .3s linear;
+            background: url(../img/dark-matter.png) center repeat rgba(0,0,0,0.15);
+            transition: background .3s linear;
         }
     }
 

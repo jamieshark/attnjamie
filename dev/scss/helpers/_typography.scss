@@ -1,0 +1,48 @@
+// font family
+$font-family: 'Raleway', 'Open Sans', sans-serif;
+
+// font weights
+$font-weight-light: 100;
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// line heights
+$line-height-small: 1.2;
+$line-height-regular: 1.4;
+$line-height-large: 1.5;
+
+$font-sizes: (
+    sub: 13px,
+    base: 16px,
+    small: 20px,
+    medium: 25px,
+    large: 31px,
+    x-large: 39px,
+    xx-large: 49px,
+);
+
+@function font-size($size) {
+    @return map-get($font-sizes, $size);
+}
+
+* {
+    font-smoothing: antialiased;
+}
+
+body {
+    font-size: font-size(base);
+    font-weight: $font-weight-regular;
+    line-height: $line-height-regular;
+}
+
+%large-title {
+    font-size: font-size(large);
+    line-height: $line-height-small;
+    font-weight: $font-weight-light;
+    color: color(gray);
+
+    @media ($SMALL_UP) {
+        line-height: $line-height-small;
+    }
+}
