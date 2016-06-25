@@ -57,113 +57,7 @@
 			$(targetAnchor).addClass('nav__anchor--current');
 		};
 
-		var $oakUnderline = $('.about__oakland__underline');
-		var oakLinks = [
-			{
-				'description': "Opportunity for healing",
-				'name': "Sogorea Te' Land Trust",
-				'href': 'http://sogoreate-landtrust.com/shuumi-land-tax/'
-			},
-			{
-				'description': 'Activism for solidarity',
-				'name': 'Black Lives Matter',
-				'href': 'http://blacklivesmatter.com/'
-			},
-			{
-				'description': 'Knowledge for justice',
-				'name': 'Causa Justa :: Just Cause',
-				'href': 'http://www.cjjc.org/'
-			},
-			{
-				'description': 'Liberation for community',
-				'name': 'Peacock Rebellion',
-				'href': 'http://www.peacockrebellion.org/'
-			},
-			{
-				'description': 'Art for inspiration',
-				'name': 'Nia King',
-				'href': 'http://www.artactivistnia.com/'
-			},
-			{
-				'description': 'Nutrition for equity',
-				'name': 'Phat Beets Produce',
-				'href': 'http://phatbeetsproduce.org/'
-			},
-			{
-				'description': 'Devotion for visibility',
-				'name': 'Qulture Collective',
-				'href': 'http://www.qulturecollective.com/'
-			}
-		];
-
-		var showMatchingOrg = function(oaklandLetter) {
-			var $currentLetter = $(oaklandLetter);
-			var currentLetterIdx = $('.about__oakland__letter').index(oaklandLetter);
-			var $orgLink = $('.about__oakland__org');
-
-			$('.about__oakland__letter').not($currentLetter).addClass('about__oakland__letter--invert');
-			$(oaklandLetter).addClass('about__oakland__letter--focus');
-
-			$orgLink.attr('href', oakLinks[currentLetterIdx]['href']);
-			$orgLink.find('.about__oakland__description').text(oakLinks[currentLetterIdx]['description']);
-			$orgLink.find('.about__oakland__name').text(oakLinks[currentLetterIdx]['name']);
-			$orgLink.css('transform', 'translateY(-5px)');
-		}
-
-		$('.about__oakland__letter').hover(
-			function() {
-				showMatchingOrg(this);
-			},
-			function() {
-				$('.about__oakland__letter').removeClass('about__oakland__letter--invert')
-				$(this).removeClass('about__oakland__letter--focus')
-			}
-		);
-
-		$('.about__oakland__letter').on('click', function(e) {
-			e.preventDefault();
-			showMatchingOrg(this);
-		});
-
-		var offsets = [],
-			mobileAgent = false;
-
-		$(window).on('load', function() {
-			// don't show video on mobile
-			if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-				mobileAgent = true;
-			}
-			if (mobileAgent || $(window).width() < 640) {
-				$('video').remove();
-			}
-			else {
-				if ($('video').length) {
-					$('video').attr('autoplay', true);
-				}
-			}
-		});
-
-		$(window).on('resize load', function() {
-			offsets = [];
-
-			$('.section__content').each(function() {
-				offsets.push($(this).offset().top - $('nav').height() * 2);
-			});
-
-			$('.nav__list-item').on('click', function(e) {
-				e.preventDefault();
-				var href = $(this).find('a').attr('href');
-			    $('html, body')
-			    	.animate({
-			       scrollTop: $(href).offset().top - $('nav').height()
-			    	}, 500);
-
-			    return false;
-			});
-
-			offsets.push($(document).height());
-		});
-
+		// navbar scroll animation
 		$(window).on('load scroll', function() {
 			var windowPos = $(this).scrollTop(),
 				heroHeight = $('.hero').height() - 100,
@@ -191,6 +85,45 @@
 			}
 			else {
 				$heroText.fadeIn();
+			}
+		});
+
+		var offsets = [];
+		$(window).on('resize load', function() {
+			offsets = [];
+
+			$('.section__content').each(function() {
+				offsets.push($(this).offset().top - $('nav').height() * 2);
+			});
+
+			$('.nav__list-item').on('click', function(e) {
+				e.preventDefault();
+				var href = $(this).find('a').attr('href');
+			    $('html, body')
+			    	.animate({
+			       scrollTop: $(href).offset().top - $('nav').height()
+			    	}, 500);
+
+			    return false;
+			});
+
+			offsets.push($(document).height());
+		});
+
+		// video and splash screen behavior
+		var mobileAgent = false;
+		$(window).on('load', function() {
+			// don't show video on mobile
+			if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+				mobileAgent = true;
+			}
+			if (mobileAgent || $(window).width() < 640) {
+				$('video').remove();
+			}
+			else {
+				if ($('video').length || $('video')[0].buffered.length) {
+					$('.hero').addClass('hero--loaded')
+				}
 			}
 		});
 	});

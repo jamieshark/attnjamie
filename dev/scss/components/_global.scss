@@ -1,14 +1,12 @@
-header {
-    // position relative so that content can be absolute
-    position: relative;
-	margin-bottom: 1rem;
-}
-
 body {
+    display: flex;
+    flex-flow: column;
 	overflow-x: hidden;
     height: 100%;
-    background-color: #f3f5f8;
     font-family: 'Raleway', 'Open Sans', sans-serif;
+    font-smooth: antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
