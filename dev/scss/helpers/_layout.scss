@@ -41,6 +41,10 @@
         justify-content: space-around;
     }
 
+    &--jc {
+        justify-content: center;
+    }
+
     /* child behaviors */
     &__block {
         display: block;
