@@ -68,31 +68,20 @@ $grey-border: 1px solid #aaa;
 }
 
 .about {
-    &__asset {
-        @media ($SMALL_BELOW) {
-            order: -1;
-            margin-right: 1rem;
-        }
-    }
-
     &__image {
         border-radius: 50%;
         height: 300px;
         width: 300px;
-        margin-right: 2rem;
-
-        @media ($SMALL_BELOW) {
-            margin: 0 0 1rem 0;
-            height: 150px;
-            width: 150px;
-        }
     }
 
-    &__greeting {
+    &__bio {
+        margin: 3rem auto;
+    }
+
+    &__declaration {
+        @extend %large-title;
         font-family: 'Rubik', sans-serif;
-        font-size: 3rem;
-        font-weight: lighter;
-        margin: 0 2rem 0 0;
+        margin: 2rem auto;
 
         @media ($MEDIUM_BELOW) {
             align-self: center;
@@ -101,47 +90,26 @@ $grey-border: 1px solid #aaa;
         }
     }
 
-    &__content {
-        width: 75%;
+    &__list {
+        display: flex;
+        align-items: center;
+    }
 
-        @media ($MEDIUM_BELOW) {
-            width: 100%;
+    &__list-title {
+        @extend %large-title;
+        @extend %vcjc;
+        font-size: 3rem;
+        width: 5rem;
+        height: 5rem;
+
+        i {
+            font-size: 2rem;
         }
     }
 
     &__subtitle {
+        @extend %medium-title;
         font-family: 'Rubik', sans-serif;
-        font-weight: 400;
-    }
-
-    &__jamie, &__jelly {
-        padding: 3rem;
-        margin: 0;
-
-        @media ($SMALL_BELOW) {
-            padding: 0;
-        }
-    }
-
-    &__jamie {
-        border-left: $grey-border;
-        border-bottom: $grey-border;
-
-        @media ($SMALL_BELOW) {
-            justify-content: center !important;
-            margin: 1rem 0;
-            border-left: none;
-        }
-    }
-
-    &__jelly {
-        border-right: $grey-border;
-        border-bottom: $grey-border;
-
-        @media ($SMALL_BELOW) {
-            justify-content: center !important;
-            border-right: none;
-        }
     }
 }
 

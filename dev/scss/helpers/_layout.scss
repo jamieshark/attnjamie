@@ -67,3 +67,23 @@
         flex: 0 1 auto;
     }
 }
+
+.al-image {
+    display: flex;
+    flex-flow: row wrap;
+
+    &--vc {
+        align-items: center;
+    }
+
+    &--sa {
+        justify-content: space-around;
+    }
+}
+
+// vertically center, justified cehter
+%vcjc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

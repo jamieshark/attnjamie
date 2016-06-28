@@ -21,7 +21,7 @@
   <script src="js/main.min.js"></script>
 </head>
 <body>
-    <!-- <header class="flex__row">
+    <header class="flex__row">
         <nav class="nav">
             <section class="nav__items">
                 <ul class="nav__list">
@@ -31,29 +31,9 @@
                 </ul>
             </section>
         </nav>
-        <div class="hero__content flex__row">
-            <p>
-            “if<br>
-            the ocean<br>
-            can calm itself,<br>
-            so can you.<br>
-            we<br>
-            are both<br>
-            salt water<br>
-            mixed with<br>
-            air.”<br>
-            &mdash; meditation<br>
-            // nayyirah waheed
-            </p>
-        </div>
-        <section class="hero flex__row flex--center">
-            <video class="hero__video flex__item flex--grow" loop muted autoplay preload="auto">
-        		<source src="./img/kuroshio540.mp4" type="video/mp4">
-        	</video>
-        </section>
-    </header> -->
+    </header>
     <section class="flex__row hero">
-        <div class="hero__content flex flex--jc">
+        <div class="hero__content flex flex__column flex--center">
             <p>
             “if<br>
             the ocean<br>
@@ -72,78 +52,84 @@
             <source src="./img/kuroshio540.mp4" type="video/mp4">
         </video>
     </section>
-<!--     <section id="intro" class="section__content flex__column">
-        <div class="flex__row section__row section__header">
-            <h1>_ intro</h1>
-        </div>
-        <div class="flex__row section__row flex--sb flex--center about__jamie">
-            <div class="flex__column">
-                <h1 class="flex__item about__greeting">
-                    I'm Jamie
-                </h1>
-                <div class="about__content flex__item flex__column">
-                    <h3 class="about__subtitle">
-                        // builder of things<br>
-                        // shark afficionado
-                    </h3>
-                    <h3>I almost always...</h3>
-                    <ul>
-                        <li>play "Rogue" class</li>
-                        <li>pick the fire Pokémon starter</li>
-                        <li>drink coffee black</li>
-                    </ul>
-                    <h3>I really love...</h3>
-                    <ul>
-                        <li><a href="https://www.instagram.com/explore/tags/jamiesharkcooks/" target="_blank">making meals</a> for my friends</li>
-                        <li>ocean things</li>
-                        <li>live music</li>
-                    </ul>
-                    <h3>I am...</h3>
-                    <ul>
-                        <li>trans / non-binary</li>
-                        <li>1.5 Generation Korean</li>
-                        <li>ENT(P/J)</li>
-                    </ul>
-                    <p>I almost always play "Rogue" class and pick the fire Pokémon starter. I have a penchant for ocean things, live music, and cold brew coffee. I really love <a href="https://www.instagram.com/explore/tags/jamiesharkcooks/" target="_blank">making meals</a> for my friends and myself as a form of self-care. I identify as gender non-binary and use <a href="http://motto.time.com/4327915/gender-neutral-pronouns/" target="_blank"><strong>they/them</strong></a> pronouns. <em>Ex:</em> Jamie is great. They were born in Seoul, raised in Chicago, went to school in St. Louis, and now they live in Oakland with their dog - Jelly.</em></p>
-                    <p>After studying music, medicine, and various stints in sushi restaurants and coffee shops, I found a great passion in building technology and bringing people's ideas to execution. I interpret building as a form of healing and aim to integrate that into my daily work.</p>
-                </div>
-            </div>
-            <div class="flex__item flex--shrink about__asset">
+    <section id="intro" class="section__row about">
+        <div class="section__content">
+            <h1 class="section__title">_ intro</h1>
+
+            <h2 class="about__declaration">
+                .jamie {
+            </h2>
+            <h2 class="about__subtitle">// builder of things</h2>
+            <h2 class="about__subtitle">// shark afficionado</h2>
+            <div class="about__bio al-image al-image--vc al-image--sa">
                 <img class="about__image" src="./img/jamie-board.jpg" />
-            </div>
-        </div>
-        <div class="flex__row section__row flex--sb flex--center about__jelly">
-            <div class="flex__item flex--shrink about__asset">
-                <img class="about__image" src="./img/jelly.png" />
-            </div>
-            <div class="flex__item flex__column">
-                <h1 class="flex__item about__greeting">
-                    & this is Jelly.
-                </h1>
-                <div class="about__content flex__item flex__column">
-                    <h3 class="about__subtitle">
-                        // Border Collie mix<br>
-                        // peanut butter afficionado
-                    </h3>
-                    <h3>I almost always...</h3>
-                    <ul>
-                        <li>lay around in the sun</li>
-                        <li>put my nose on computer screens</li>
-                        <li>look cute</li>
-                    </ul>
-                    <h3>I really love...</h3>
-                    <ul>
-                        <li>peanut butter</li>
-                        <li>cheese whiz</li>
-                    </ul>
-                    <h3>I am...</h3>
-                    <ul>
-                        <li>dog</li>
-                    </ul>
+                <div class="flex__column flex--shrink">
+
+                    <div class="about__list">
+                        <h3 class="about__list-title">∞</h3>
+                        <ul>
+                            <li class="about__list-item">plays "Rogue" class</li>
+                            <li class="about__list-item">picks the fire Pokémon starter</li>
+                            <li class="about__list-item">drinks their coffee black</li>
+                        </ul>
+                    </div>
+                    <div class="about__list">
+                        <h3 class="about__list-title"><i class="fa fa-heart" aria-hidden="true"></i></h3>
+                        <ul>
+                            <li class="about__list-item"><a href="https://www.instagram.com/explore/tags/jamiesharkcooks/" target="_blank">making meals</a> for my friends</li>
+                            <li class="about__list-item">ocean things</li>
+                            <li class="about__list-item">live music</li>
+                        </ul>
+                    </div>
+                    <div class="about__list">
+                        <h3 class="about__list-title"><i class="fa fa-info" aria-hidden="true"></i></h3>
+                        <ul>
+                            <li class="about__list-item">trans / non-binary (<a href="http://motto.time.com/4327915/gender-neutral-pronouns/" target="_blank"><strong>they/them</strong></a> pronouns)</li>
+                            <li class="about__list-item">1.5 Generation Korean</li>
+                            <li class="about__list-item">ENT(P/J)</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+            <h2 class="about__declaration">
+                };
+            </h2>
+            <h2 class="about__declaration">
+                .jelly {
+            </h2>
+            <h2 class="about__subtitle">// Border Collie mix</h2>
+            <h2 class="about__subtitle">// peanut butter afficionado</h2>
+            <div class="about__bio al-image al-image--vc al-image--sa">
+                <img class="about__image" src="./img/jelly.png" />
+                <div class="flex__column flex--shrink">
+                    <div class="about__list">
+                        <h3 class="about__list-title">∞</h3>
+                        <ul>
+                            <li class="about__list-item">puts her nose on computer screens</li>
+                            <li class="about__list-item">looks cute</li>
+                            <li class="about__list-item">impedes the development process</li>
+                        </ul>
+                    </div>
+                    <div class="about__list">
+                        <h3 class="about__list-title"><i class="fa fa-heart" aria-hidden="true"></i></h3>
+                        <ul>
+                            <li class="about__list-item">peanut butter</li>
+                            <li class="about__list-item">cheese</li>
+                        </ul>
+                    </div>
+                    <div class="about__list">
+                        <h3 class="about__list-title"><i class="fa fa-info" aria-hidden="true"></i></h3>
+                        <ul>
+                            <li class="about__list-item">dog</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <h2 class="about__declaration">
+                };
+            </h2>
         </div>
-    </section> -->
+    </section>
 <!--     <section id="work" class="section__content flex__column">
         <div class="flex__row section__row section__header">
             <h1>_ work</h1>

@@ -46,3 +46,10 @@ body {
         line-height: $line-height-small;
     }
 }
+
+%medium-title {
+    font-size: font-size(medium);
+    line-height: $line-height-small;
+    font-weight: $font-weight-light;
+    color: color(gray);
+}
