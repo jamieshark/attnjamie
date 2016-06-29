@@ -41,7 +41,8 @@ body {
         font-size: font-size(x-large);
         line-height: $line-height-large;
         font-weight: $font-weight-semibold;
-        color: color(grey, dark);
+        color: glacier(navy);
+        margin: 3rem 0;
 
         &--iv {
             color: color(white);

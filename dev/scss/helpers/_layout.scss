@@ -87,3 +87,15 @@
     justify-content: center;
     align-items: center;
 }
+
+// space around
+%flex-sa {
+    display: flex;
+    justify-content: space-around;
+}
+
+// space around
+%flex-sb {
+    display: flex;
+    justify-content: space-between;
+}
