@@ -1,10 +1,20 @@
 // color constants
+// taken from Glacier Sublime theme
+$glacierColors: (
+    teal: rgba(#266b85, 1.0),
+    red: rgba(#d7503c, 1.0),
+    orange: rgba(#f57542, 1.0),
+    yellow: rgba(#f7f09d, 1.0),
+    green: rgba(#76ffcd, 1.0),
+    grey: rgba(#0e151b, 1.0),
+);
+
 $globalColors: (
     white: rgb(255, 255, 255),
 
     black: rgb(0, 0, 0),
 
-    gray: (
+    grey: (
         base: rgba(#47525d, 1.0),
         x-dark: rgba(#25282b, 1.0),
         dark: rgba(#3d464d, 1.0),
@@ -50,7 +60,7 @@ $globalColors: (
     ),
 );
 
-$grayScale: (
+$greyScale: (
     1: rgb(23, 23, 23),     // 0x17
     2: rgb(46, 46, 46),     // 0x2E
     3: rgb(69, 69, 69),     // 0x45
@@ -69,19 +79,9 @@ $__alpha-stops: (0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1);
 $__shade-vals: ("x-dark", "dark", "base", "medium", "light", "x-light");
 
 //---------------------------
-//
-// The grayscale function takes two arguments:
-//  REQUIRED: Level of gray
-//    There are 10 levels of gray, ranging from 1 to 10 (darkest to lightest).
-//  OPTIONAL: Level of opacity
-//    There are 11 levels of opacity, ranging from 0% to 100% (transparent to opaque).
-//
-// Example: grayscale(1, 100%);
-// This will create a dark gray that is fully opaque.
-//
-//---------------------------
-@function grayscale($gradation, $alpha: 100%) {
-    @if map-has-key($grayScale, $gradation) {
+
+@function glacier($color, $alpha: 100%) {
+    @if map-has-key($glacierColors, $color) {
         $unitless-alpha: $alpha / ($alpha * 0 + 1);
         $alpha-val: $unitless-alpha / 100;
 
@@ -89,8 +89,24 @@ $__shade-vals: ("x-dark", "dark", "base", "medium", "light", "x-light");
             @error "Only alpha values in 10% increments are allowed";
         }
 
-        $grayscale-val: map-get($grayScale, $gradation);
-        @return rgba($grayscale-val, $alpha-val);
+        $glacier-val: map-get($glacierColors, $color);
+        @return rgba($glacier-val, $alpha-val);
+    } @else {
+        @warn "No color of #{$color} found in $glacierColors map.";
+    }
+}
+
+@function greyscale($gradation, $alpha: 100%) {
+    @if map-has-key($greyScale, $gradation) {
+        $unitless-alpha: $alpha / ($alpha * 0 + 1);
+        $alpha-val: $unitless-alpha / 100;
+
+        @if index($__alpha-stops, $alpha-val) == null {
+            @error "Only alpha values in 10% increments are allowed";
+        }
+
+        $greyscale-val: map-get($greyScale, $gradation);
+        @return rgba($greyscale-val, $alpha-val);
     } @else {
         @warn "No gradation of #{$gradation} found in $grayScale map.";
     }

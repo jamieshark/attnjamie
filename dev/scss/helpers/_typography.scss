@@ -36,11 +36,45 @@ body {
     line-height: $line-height-regular;
 }
 
+.section {
+    &__title {
+        font-size: font-size(x-large);
+        line-height: $line-height-large;
+        font-weight: $font-weight-semibold;
+        color: color(grey, dark);
+
+        &--iv {
+            color: color(white);
+        }
+    }
+}
+
+.glc {
+    &--r {
+        color: glacier(red);
+    }
+
+    &--t {
+        color: glacier(teal);
+    }
+
+    &--y {
+        color: glacier(yellow);
+    }
+
+    &--g {
+        color: glacier(green);
+    }
+    &--w {
+        color: color(white);
+    }
+}
+
 %large-title {
     font-size: font-size(large);
     line-height: $line-height-small;
-    font-weight: $font-weight-light;
-    color: color(gray);
+    font-weight: $font-weight-regular;
+    color: color(grey, dark);
 
     @media ($SMALL_UP) {
         line-height: $line-height-small;
@@ -51,5 +85,21 @@ body {
     font-size: font-size(medium);
     line-height: $line-height-small;
     font-weight: $font-weight-light;
-    color: color(gray);
+    color: color(grey, dark);
+}
+
+%commented-code {
+    font-family: "Ubuntu Mono", sans-serif;
+    font-size: font-size(small);
+    line-height: $line-height-small;
+    font-weight: $font-weight-light;
+    color: color(grey);
+}
+
+%code-block {
+    font-family: "Ubuntu Mono", sans-serif;
+    font-size: font-size(base);
+    line-height: $line-height-large;
+    font-weight: $font-weight-light;
+    color: color(white);
 }

@@ -1,6 +1,3 @@
-$black-border: 2px solid #000;
-$grey-border: 1px solid #aaa;
-
 .section {
     &__content {
         margin: auto;
@@ -15,7 +12,7 @@ $grey-border: 1px solid #aaa;
     &__row {
         width: 100%;
         align-self: center;
-        margin: 1rem 0;
+        padding: 1rem 0;
     }
 }
 
@@ -68,6 +65,8 @@ $grey-border: 1px solid #aaa;
 }
 
 .about {
+    background-color: glacier(grey);
+
     &__image {
         border-radius: 50%;
         height: 300px;
@@ -81,6 +80,7 @@ $grey-border: 1px solid #aaa;
     &__declaration {
         @extend %large-title;
         font-family: 'Rubik', sans-serif;
+        color: color(white);
         margin: 2rem auto;
 
         @media ($MEDIUM_BELOW) {
@@ -104,12 +104,23 @@ $grey-border: 1px solid #aaa;
 
         i {
             font-size: 2rem;
+            color: color(grey);
+        }
+    }
+
+    &__list-item {
+        @extend %code-block;
+        strong {
+            font-weight: $font-weight-bold;
+            color: glacier(teal);
+        }
+        &--indent {
+            margin-left: 2rem;
         }
     }
 
     &__subtitle {
-        @extend %medium-title;
-        font-family: 'Rubik', sans-serif;
+        @extend %commented-code;
     }
 }
 
@@ -226,7 +237,6 @@ $grey-border: 1px solid #aaa;
     }
 
     &__list {
-        border-left: $black-border;
 
         .fa-ul {
             @media ($SMALL_BELOW) {
