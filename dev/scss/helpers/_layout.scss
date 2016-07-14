@@ -1,101 +1,333 @@
-.flex {
-    display: flex;
-    margin: 0;
-    padding: 0;
-
-    /* parent behaviors */
-    &__row {
-        display: flex;
-        flex: 1;
-        flex-flow: row wrap;
-    }
-
-    &__column {
-        display: flex;
-        flex: 1;
-        flex-flow: column wrap;
-
-        @media ($SMALL_BELOW) {
-            flex: 1 0 auto;
-            max-width: 100%;
-        }
-    }
-
-    &--fs {
-        align-items: flex-start;
-    }
-
-    &--fe {
-        align-items: flex-end;
-    }
-
-    &--center {
-        align-items: center;
-    }
-
-    &--sb {
-        justify-content: space-between;
-    }
-
-    &--sa {
-        justify-content: space-around;
-    }
-
-    &--jc {
-        justify-content: center;
-    }
-
-    /* child behaviors */
-    &__block {
-        display: block;
-    }
-
-    &__item {
-        display: flex;
-        flex: 1;
-
-        @media ($SMALL_BELOW) {
-            flex: 1 0 auto;
-        }
-    }
-
-    &--grow {
-        flex: 1 0 auto;
-    }
-
-    &--shrink {
-        flex: 0 1 auto;
+$page-max-width: 990px;
+* {
+    &, &:before, &:after {
+        box-sizing: border-box;
     }
 }
-
-.al-image {
-    display: flex;
-    flex-flow: row wrap;
-
-    &--vc {
-        align-items: center;
-    }
-
-    &--sa {
-        justify-content: space-around;
+* {
+    &, &:before, &:after {
+        box-sizing: border-box;
     }
 }
-
-// vertically center, justified cehter
-%vcjc {
+// Breakpoints, setter and mixins for mobile-first layouts
+// =============================================================================
+$-breakpoints: ();
+@mixin breakpoint-set($breakpoint-name, $min-width) {
+  $-breakpoints: map-merge($-breakpoints, ($breakpoint-name: $min-width)) !global;
+}
+@mixin breakpoint($value: 0) {
+  $min-width: map-get($-breakpoints, $value) or $value;
+  @if $min-width > 0 {
+    @media only screen and (min-width: #{$min-width}) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+@mixin breakpoint-classes($suffix) {
+  @each $breakpoint-name, $min-width in $-breakpoints {
+    @include breakpoint($breakpoint-name) {
+      .#{$breakpoint-name}-#{$suffix} {
+        @content;
+      }
+    }
+  }
+}
+// Flex Rows, Columns, and Items
+// =============================================================================
+// mixin for a flex-row that's able to be nested in other flex elements
+// can specify whether or not it will have spacing between items or not
+// by default, it has no spacing between items and it will not take on
+// contained behavior (centered with a max-width)
+@mixin flex-row(
+  $contain: false,
+  $collapse: true,
+  $max-width: $page-max-width,
+  $item-spacing: null
+) {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  @if $item-spacing {
+    @include item-spacing($spacing: $item-spacing);
+  }
+  @if $collapse {
+    @extend %no-spacing;
+  }
+  @if $contain {
+    max-width: $max-width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@mixin flex-column(
+  $shrink: null
+) {
     display: flex;
+    // by default, we can stack rows nested in cols
+    flex-wrap: wrap;
+    @if $shrink {
+        flex: 0;
+    }
+    @else {
+        flex: 1;
+    }
+}
+@mixin flex-grid-column(
+  $pct: 100%
+) {
+    @include flex-column($shrink: true);
+    flex: 0 0 $pct;
+}
+@mixin flex-expand {
+  flex: 1 100%;
+}
+@mixin flex-item(
+    $flow: 'column'
+) {
+    display: flex;
+    flex-flow: column;
+    @if $flow == 'row' {
+        flex-flow: row;
+    }
+}
+%no-spacing {
+    padding-left: 0;
+    padding-right: 0;
+}
+@mixin item-spacing ($spacing: $global-item-spacing) {
+  $spacing: $spacing / 2;
+  padding-left: $spacing;
+  padding-right: $spacing;
+}
+// Flex Modifiers: Horizontal & Vertical Alignments, Order
+// =============================================================================
+$flex-align-x: (
+  center: center,
+  left: flex-start,
+  right: flex-end,
+  bookend: space-between,
+  spaced: space-around
+) !default;
+$flex-align-y: (
+  middle: center,
+  top: flex-start,
+  bottom: flex-end,
+  stretch: stretch,
+  baseline: baseline
+) !default;
+@mixin flex-align($x: null, $y: null, $self: null, $flow: 'row') {
+  @if $x {
+    @if map-has-key($flex-align-x, $x) {
+      $x: map-get($flex-align-x, $x);
+    }
+    @else {
+      @warn 'flex-align(): #{$x} is not a valid value for horizontal alignment. Use left, right, center, justify, or spaced.'
+    }
+  }
+  @if $y {
+    @if map-has-key($flex-align-y, $y) {
+      $y: map-get($flex-align-y, $y);
+    }
+    @else {
+      @warn 'flex-align(): #{$y} is not a valid value for vertical alignment. Use top, bottom, middle, or stretch.'
+    }
+  }
+  @if $self {
+    @if map-has-key($flex-align-y, $self) {
+      $self: map-get($flex-align-y, $self);
+    }
+    @else {
+      @warn 'flex-align(): #{$self} is not a valid value for self alignment. Use top, bottom, middle, or stretch.'
+    }
+  }
+  @if $flow == 'column' {
+    justify-content: $y;
+    align-items: $x;
+  }
+  @else {
+    justify-content: $x;
+    align-items: $y;
+  }
+  align-self: $self;
+}
+// vertical align, horizontal align
+@mixin vcjc {
     justify-content: center;
     align-items: center;
 }
-
-// space around
-%flex-sa {
-    display: flex;
-    justify-content: space-around;
+@mixin flex-order($order: 0) {
+  order: $order;
 }
+// Flex Grid
+// =============================================================================
+// Allows for separate class names, uses the previously defined alignment maps to create the alignments
+@mixin flex-grid (
+  $grid-class: 'grid',
+  $section-class: 'section',
+  $row-class: 'row',
+  $column-class: 'column',
+  $shrink-class: 'shrink',
+  $columns: 12,
+  $row-max-width: $page-max-width,
+  $alignments: ('x', 'y', 'self')
+) {
+  .#{$grid-class} {
+    &__#{$section-class} {
+      @include flex-row;
+      width: 100%;
+      height: auto;
+    }
+    &__#{$row-class} {
+      @include flex-row(
+        $contain: true,
+        $max-width: $row-max-width
+      );
+      & & {
+        @include flex-row(
+            $contain: false,
+            $collapse: true
+        );
+      }
+      &--roomy {
+        padding: 2rem 0;
+      }
+      &--spacious {
+        padding: 5rem 0;
+      }
+      // shortcut for stack on small behavior
+      // &--stack-on-small {
+      //   .#{$grid-class}__#{$column-class} {
+      //     @include stack-on-small;
+      //   }
+      // }
+    }
+    &__#{$column-class} {
+        @include flex-column;
+        &--#{$shrink-class} {
+            @include flex-column($shrink: true);
+        }
+    }
+    &__stack {
+      @include flex-item;
+    }
 
-// space around
-%flex-sb {
-    display: flex;
-    justify-content: space-between;
+    @each $breakpoint-name, $min-width in $-breakpoints {
+        @include breakpoint($breakpoint-name) {
+            // vertical center, justify center
+            &--#{$breakpoint-name}--vcjc {
+                @include vcjc;
+            }
+
+            // x align, assuming row flow
+            @each $align-name, $alignment in $flex-align-x {
+                &--#{$breakpoint-name}-x-#{$align-name} {
+                  @include flex-align($x: $align-name);
+                }
+            }
+            // y align, self align
+            @each $align-name, $alignment in $flex-align-y {
+                &--#{$breakpoint-name}-y-#{$align-name} {
+                  @include flex-align($y: $align-name);
+                }
+                &--#{$breakpoint-name}-self-#{$align-name} {
+                  @include flex-align($self: $align-name);
+                }
+            }
+
+            // stack row columns
+            &__#{$row-class}--#{$breakpoint-name}-stack .#{$grid-class}__#{$column-class} {
+                @include flex-expand;
+            }
+
+            // grid sizes for column
+            &__#{$column-class}--#{$breakpoint-name} {
+                @for $i from 1 through $columns {
+                    // Column width sizes
+                    &-#{$i}-#{$columns} {
+                        @include flex-grid-column($pct: percentage($i/$columns));
+                    }
+                }
+
+                &--expand {
+                    @include flex-expand;
+                }
+
+                &--shrink {
+                    @include flex-column($shrink: true);
+                }
+
+                @for $i from 1 through 12 {
+                  // Column source ordering
+                  &-order-#{$i} {
+                    @include flex-order($i);
+                  }
+                }
+            }
+        }
+    }
+  }
+}
+// aligned media
+// this component is used to align an asset with some copy
+// the default behavior is for the media to stack on a specified breakpoint
+@mixin sized-img($width, $height: auto) {
+  width: $width;
+  height: $height;
+  margin: auto 0;
+  max-width: 100%;
+  max-height: 100%;
+}
+@mixin aligned-image-classes (
+  $media-class: 'media',
+  $image-class: 'image',
+  $caption-class: 'caption',
+  $space-between: null // let flexbox take care of the space, unless otherwise specified
+) {
+  .#{$media-class} {
+    &__#{$image-class} {
+      display: block;
+      img {
+        @include sized-img($width: auto)
+      }
+      // ability to use flex alignments with images
+      &--flex {
+        @include flex-row($contain: true);
+        margin: auto 0;
+      }
+      &--last {
+        order: 6;
+      }
+    }
+    &__#{$caption-class} {
+      @include flex-item;
+      // swap alignment values for column flow
+      // we want captions to essentially stack all their things automatically
+      // so we swap the alignment classes to go with cross-axis behavior
+      // ex: .media__caption--middle will vertically align text within a div
+      // .media__caption--bookend will place the first and last elements at the
+      // top and bottom of the div and distribute the rest accordingly
+      @each $align-name, $alignment in $flex-align-x {
+        &--#{$align-name} {
+          @include flex-align($x: $align-name, $flow: 'column');
+        }
+      }
+      @each $align-name, $alignment in $flex-align-y {
+        &--#{$align-name} {
+          @include flex-align($y: $align-name, $flow: 'column');
+        }
+      }
+    }
+    @each $breakpoint-name, $min-width in $-breakpoints {
+      @include breakpoint($breakpoint-name) {
+        &--#{$breakpoint-name}-stack {
+          @include flex-expand;
+          & + &__#{$caption-class}, & + &__#{$image-class} {
+            @include flex-expand;
+          }
+        }
+      }
+    }
+  }
 }

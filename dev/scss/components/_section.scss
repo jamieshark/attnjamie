@@ -1,20 +1,20 @@
-.section {
-    &__content {
-        margin: auto;
-        width: 75%;
+@include breakpoint-set('', 0);
+@include breakpoint-set(medium, 736px);
+@include breakpoint-set(large, 1024px);
+@include flex-grid(
+    $grid-class: 'grid',
+    $column-class: 'col',
+    $row-max-width: 990px
+);
+@include aligned-image-classes;
 
-        @media ($SMALL_BELOW) {
-            margin: 1rem auto;
-            width: 90%;
+.media {
+    &__image {
+        &--round {
+            border-radius: 50%;
         }
     }
-
-    &__row {
-        width: 100%;
-        align-self: center;
-    }
 }
-
 .hero {
     overflow: hidden;
     position: relative;
@@ -28,7 +28,7 @@
         left: 0;
         background-color: rgba(0,0,0,1);
         width: 100%;
-        height: 720px;
+        height: 100%;
     }
 
     &--loaded {
@@ -46,14 +46,12 @@
     }
 
     &__content {
-        width: 30%;
         position: absolute;
         z-index: 50;
-        top: 25%;
-        margin: 0 auto;
-        left: 0;
-        right: 0;
-
+        width: 100%;
+        height: 100%;
+        @include flex-item;
+        @include vcjc;
         p {
             color: #fff;
             line-height: 1.75em;
@@ -76,15 +74,11 @@
         width: 300px;
     }
 
-    &__bio {
-        margin: 3rem auto;
-    }
-
     &__declaration {
         @extend %large-title;
         font-family: 'Rubik', sans-serif;
         color: color(white);
-        margin: 2rem auto;
+        margin: 2rem 0;
 
         @media ($MEDIUM_BELOW) {
             align-self: center;
@@ -100,7 +94,7 @@
 
     &__list-title {
         @extend %large-title;
-        @extend %vcjc;
+        @include vcjc;
         font-size: 3rem;
         width: 5rem;
         height: 5rem;
@@ -147,174 +141,71 @@
     };
 
     &__filter {
-        @extend %flex-sa;
+        @include flex-item;
+        cursor: pointer;
+        align-items: center;
+        &:hover .work__pokeball {
+            animation: wiggle .3s linear 2;
+            transform-origin: 50% bottom;
+        };
     }
 
-    &__portfolio {
-        @extend %flex-sb;
-        flex-flow: row wrap;
+    &__sprite {
+        width: 50px;
     }
 
-    &__card {
-        @extend %vcjc;
-        flex-flow: column;
-        margin: .5rem 0;
-        width: 25%;
-        height: 300px;
-        background-color: glacier(navy);
+    &__copy {
+        padding: 0 1rem;
+    }
+
+    &__hp-container {
+        width: 150px;
+        display: flex;
+        flex-flow: row;
+    }
+
+    &__hp {
+        height: 13px;
+        background-color: color(black);
+        display: flex;
+        &--start {
+            flex: 0 15%;
+        }
+
+        &--mid {
+            height: 3px;
+            align-self: flex-end;
+            flex: 1;
+        }
+
+
+        &--end {
+            flex: 0 5%;
+        }
+    }
+
+    &__hp-fill {
+        position: relative;
+        top: -7px;
+        width: 100%; // variable percentage
+        background-color: color(green); // variable color
+        height: 5px;
+        transition: width .3s linear;
     }
 
     &__title {
         color: glacier(teal);
-    }
-
-    &__img {
-        max-width: 100%;
-    }
-}
-
-.portfolio {
-    &__container {
-        align-self: stretch;
-        justify-content: space-between;
-        flex: 1;
-        max-width: 100%;
-        background: #1D2939;
-    }
-
-    &__item {
-        display: flex;
-        flex: 0 1 auto;
-        margin: 0;
-        position: relative;
-        z-index: 1;
-        overflow: hidden;
-        height: auto;
-        background: #1D2939;
-        cursor: pointer;
-
-        @media ($SMALL_BELOW) {
-            flex: 1 0 100%;
-            max-width: 100%;
-        }
-
-        &:hover {
-            img {
-                opacity: 0.4;
-            }
-
-            figcaption::before, figcaption::after {
-                opacity: 1;
-                -webkit-transform: scale(1);
-                transform: scale(1);
-            }
-
-            h2 {
-                opacity: 1;
-                -webkit-transform: translate3d(0,0,0);
-                transform: translate3d(0,0,0);
-            }
-        }
-    }
-
-    &__image {
-        height: 300px;
-        max-width: 100%;
-        opacity: 0;
-        -webkit-transition: opacity 0.35s;
-        transition: opacity 0.35s;
-    }
-
-    &__caption {
-        color: #BFBFBF;
-        text-transform: uppercase;
-        font-size: 1.25em;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-    }
-
-    &__caption, &__anchor {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-
-        &::before, &::after {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            bottom: 30px;
-            left: 30px;
-            content: '';
-            opacity: 0;
-            -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-            transition: opacity 0.35s, transform 0.35s;
-        }
-    }
-
-    &__anchor {
-        z-index: 1000;
-        text-indent: 200%;
-        white-space: nowrap;
-        font-size: 0;
-        opacity: 0;
-    }
-
-    &__title {
-        margin: 25% auto;
-        text-align: center;
-        letter-spacing: .1em;
-        color: #fff;
-        font-family: Quicksand, "Helvetica Neue", sans-serif;
-        font-weight: 300;
-        transition: transform 0.35s;
-        transform: translate3d(0,15px,0);
-    }
-}
-
-.speaking {
-    &__container {
-        align-self: stretch;
-        justify-content: center;
-    }
-
-    &__list {
-
-        .fa-ul {
-            @media ($SMALL_BELOW) {
-                flex: 1;
-                margin: 1rem 2rem;
-            }
-        }
-    }
-
-    &__year {
-        max-height: 1rem;
-        align-self: center;
-        transform: rotate(270deg);
-
-        @media ($SMALL_BELOW) {
-            margin-left: 2.14285714em;
-            width: 100%;
-            transform: rotate(0deg);
-        }
+        margin-bottom: 5px;
     }
 }
 
 .contact {
-    &__content {
-        padding: 3rem 0;
-    }
-
     &__icon {
         margin: auto;
         height: 3.5rem;
         width: 3.5rem;
-        background-color: #9ad3de;
-        border-radius: 50%;
-        justify-content: center;
-        align-items: center;
+        background-color: glacier(teal);
+        @include vcjc;
 
         .fa {
             color: #fff;
@@ -328,24 +219,12 @@
 
 .footer {
     position: relative;
-    padding: 3rem 0;
-    background-color: rgba(0,0,0,.8);
-    color: #fff;
-
-    &__content {
-        margin: auto;
-        width: 75%;
-
-        @media ($SMALL_BELOW) {
-            margin: 2rem auto;
-            width: 90%;
-        }
-    }
+    background-color: glacier(navy);
+    color: color(white);
 
     &__scum {
         position: absolute;
         bottom: 0;
         right: 0;
     }
-
 }

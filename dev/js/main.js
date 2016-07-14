@@ -25,6 +25,87 @@
 			"challenging heteronormativity"
 		];
 
+		var workPokemon = {
+			'tech': [
+				{
+					"title": "Dropbox",
+					"hp": 90
+				},
+				{
+					"title": "Qulture Collective",
+					"hp": 70
+				},
+				{
+					"title": "ZURB - Foundation",
+					"hp": 60
+				},
+				{
+					"title": "Rainbow Ipsum",
+					"hp": 40
+				},
+				{
+					"title": "CBITS @ Northwestern University",
+					"hp": 30
+				},
+				{
+					"title": "Razorfish",
+					"hp": 30
+				}
+			],
+			'talk': [
+				{
+					"title": "Beyond the Code",
+					"hp": 90
+				},
+				{
+					"title": "AlterConf",
+					"hp": 30
+				},
+				{
+					"title": "Lesbians Who Tech - Summit",
+					"hp": 60
+				},
+				{
+					"title": "Waffle JS",
+					"hp": 40
+				},
+				{
+					"title": "Dropbox",
+					"hp": 30
+				},
+				{
+					"title": "DreamForce",
+					"hp": 30
+				}
+			],
+			'model': [
+				{
+					"title": "St. Harridan",
+					"hp": 80
+				},
+				{
+					"title": "Miki Vargas",
+					"hp": 90
+				},
+				{
+					"title": "THÚY Custom Clothier",
+					"hp": 40
+				},
+				{
+					"title": "STUZO",
+					"hp": 40
+				},
+				{
+					"title": "QWEAR Fashion",
+					"hp": 30
+				},
+				{
+					"title": "Sharpe Suiting",
+					"hp": 30
+				}
+			]
+		}
+
 		// do the Knuth shuffle
 		function shuffle(array) {
 		  var currentIndex = array.length, temporaryValue, randomIndex ;
@@ -57,9 +138,8 @@
 			$(targetAnchor).addClass('nav__anchor--current');
 		};
 
-		// navbar scroll animation
-		$(window).on('load scroll', function() {
-			var windowPos = $(this).scrollTop(),
+		var animateScrolled = function() {
+			var windowPos = $(window).scrollTop(),
 				heroHeight = $('.hero').height() - 100,
 				$heroText   = $('.hero__content'),
 				$navBar		 = $('nav');
@@ -79,20 +159,46 @@
 		       		toggleCurrentClass($('.nav__list-item')[offsets.length-2]);
 		       	}
 			}
-
 			if ($navBar.offset().top > heroHeight * (2/3)) {
 				$heroText.fadeOut();
 			}
 			else {
 				$heroText.fadeIn();
 			}
+		}
+
+		$('.work__filter').on('click', function() {
+			var filterKey = $(this).data('poke-filter');
+			$.each(workPokemon[filterKey], function(idx, el) {
+				var targetTitle = $('.work__pokemon .work__title')[idx];
+				var targetHP = $('.work__pokemon .work__hp-fill')[idx];
+				$(targetTitle).text(el.title);
+				$(targetHP).css('width', el.hp + '%');
+
+				if (el.hp < 70 && el.hp >= 40) {
+					// yellow
+					$(targetHP).css('background-color', '#fcca00');
+				}
+				else if (el.hp < 40) {
+					// red
+					$(targetHP).css('background-color', '#e82110');
+				}
+				else {
+					// green
+					$(targetHP).css('background-color', '#48ac68');
+				}
+			})
+		})
+		// navbar scroll animation
+		$(window).on('load scroll', function() {
+			animateScrolled();
 		});
 
 		var offsets = [];
 		$(window).on('resize load', function() {
 			offsets = [];
 
-			$('.section__content').each(function() {
+			$('.section__title').each(function() {
 				offsets.push($(this).offset().top - $('nav').height() * 2);
 			});
 

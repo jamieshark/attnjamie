@@ -1,10 +1,9 @@
 {
-  "name": "jeaniedotcom",
+  "name": "jamiechung",
   "version": "0.0.1",
   "description": "Personal website",
   "repository": {
-    "type": "git",
-    "url": "https://github.com/jeanieshark/jeaniedotcom"
+    "type": "git"
   },
   "devDependencies": {
     "foundation-sites": "^5.5.2",
@@ -18,7 +17,8 @@
     "gulp-sass": "^2.0.4",
     "gulp-sftp": "^0.1.5",
     "gulp-uglify": "^1.2.0",
-    "rimraf": "^2.4.2"
+    "rimraf": "^2.4.2",
+    "jquery": "^2.1.4"
   },
   "dependencies": {
     "lodash": "^3.10.1"

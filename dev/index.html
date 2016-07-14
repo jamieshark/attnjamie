@@ -6,6 +6,10 @@
   <title>Jamie Chung | Developer</title>
   <link href="img/favicon.png" rel="shortcut icon" type="image/png" />
   <meta name="description" content="A website about Jamie Chung, a developer in the Bay Area.">
+  <meta
+    name="keywords"
+    content="bay area, chicago, developer, jamie, chung, jamie chung, speaker, model, qtpoc, queer, trans, non-binary,
+            engineer, web developer, poc, korean, tech, full-stack, front-end, react, angular, javascript, html, css, wordpress, python, ruby, sharks, what a nerd">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Styles -->
@@ -16,13 +20,13 @@
   <link rel="stylesheet" href="css/main.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-  <script type="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+  <script src="js/jquery.min.js"></script>
   <script src="js/main.min.js"></script>
 </head>
 <body>
-    <header class="flex__row">
+    <header class="grid__section">
         <nav class="nav">
             <section class="nav__items">
                 <ul class="nav__list">
@@ -34,8 +38,8 @@
         </nav>
     </header>
     <main>
-        <section class="flex__row hero">
-            <div class="hero__content flex flex__column flex--center">
+        <section class="grid__section hero">
+            <div class="hero__content">
                 <p>
                 “if<br>
                 the ocean<br>
@@ -54,24 +58,27 @@
                 <source src="./img/kuroshio540.mp4" type="video/mp4">
             </video>
         </section>
-        <section id="intro" class="intro">
-            <div class="section__content">
-                <h1 class="section__title section__title--iv">_ intro</h1>
-
-                <h2 class="intro__declaration">
-                    .jamie {
-                </h2>
-                <h2 class="intro__subtitle">// builder of things</h2>
-                <h2 class="intro__subtitle">// shark afficionado</h2>
-                <div class="intro__bio al-image al-image--vc al-image--sa">
-                    <img class="intro__image" src="./img/jamie-board.jpg" />
-                    <div class="flex__column flex--shrink">
+        <section id="intro" class="grid__section intro">
+            <div class="grid__row grid__row--roomy">
+                <div class="grid__stack">
+                    <h1 class="section__title section__title--iv">_ intro</h1>
+                    <h2 class="intro__declaration">
+                        .jamie {
+                    </h2>
+                    <h2 class="intro__subtitle">// builder of things</h2>
+                    <h2 class="intro__subtitle">// shark afficionado</h2>
+                </div>
+                <div class="grid__row grid__row--roomy grid---x-spaced">
+                    <div class="intro__image media__image">
+                        <img class="media__image--round" src="./img/jamie-board.jpg" />
+                    </div>
+                    <div class="media__caption media__caption--middle">
                         <div class="intro__list">
                             <h3 class="intro__list-title"><i class="fa fa-info" aria-hidden="true"></i></h3>
                             <ul>
                                 <li class="intro__list-item"><strong>gender:</strong> trans, non-binary;</li>
                                 <li class="intro__list-item"><strong>pronouns:</strong> <a href="http://motto.time.com/4327915/gender-neutral-pronouns/" target="_blank">they/them</a> <span class="glc--r">!important</span>;</li>
-                                <li class="intro__list-item"><strong>personality-boxes:</strong> ENT(P/J), Horse, 3, Libra;</li>
+                                <li class="intro__list-item"><strong>personality-boxes:</strong> ENT(P/J), Libra, Ravenclaw;</li>
                             </ul>
                         </div>
                         <div class="intro__list">
@@ -91,17 +98,21 @@
                         </div>
                     </div>
                 </div>
-                <h2 class="intro__declaration">
-                    };
-                </h2>
-                <h2 class="intro__declaration">
-                    .jelly {
-                </h2>
-                <h2 class="intro__subtitle">// Border Collie mix</h2>
-                <h2 class="intro__subtitle">// peanut butter afficionado</h2>
-                <div class="intro__bio al-image al-image--vc al-image--sa">
-                    <img class="intro__image" src="./img/jelly.png" />
-                    <div class="flex__column flex--shrink">
+                <div class="grid__stack">
+                    <h2 class="intro__declaration">
+                        };
+                    </h2>
+                    <h2 class="intro__declaration">
+                        .jelly {
+                    </h2>
+                    <h2 class="intro__subtitle">// Border Collie mix</h2>
+                    <h2 class="intro__subtitle">// peanut butter afficionado</h2>
+                </div>
+                <div class="grid__row grid__row--roomy grid---x-spaced">
+                    <div class="media__image intro__image">
+                        <img class="media__image--round" src="./img/jelly.png" />
+                    </div>
+                    <div class="media__caption media__caption--middle">
                         <div class="intro__list">
                             <h3 class="intro__list-title"><i class="fa fa-info" aria-hidden="true"></i></h3>
                             <ul>
@@ -131,202 +142,168 @@
                 </h2>
             </div>
         </section>
-        <section id="work">
-            <div class="section__content">
+        <section id="work" class="grid__section">
+            <div class="grid__row">
                 <h1 class="section__title">_ work</h1>
-                <div class="work__filter">
-                    <h2><img class="work__pokeball" src="./img/pokeball-sprite.png" /> Tech</h2>
-                    <h2><img class="work__pokeball" src="./img/pokeball-sprite.png" /> Talks</h2>
-                    <h2><img class="work__pokeball" src="./img/pokeball-sprite.png" /> Modeling</h2>
-                </div>
-                <div class="work__portfolio">
-                    <div class="work__card">
-                        <img class="work__img" src="./img/charizard-shot.jpg" />
-                        <h3 class="work__title">Beep boop</h3>
+                <div class="grid__row grid---x-bookend">
+                    <div class="grid__col">
+                        <h2 class="work__filter" data-poke-filter="tech"><img class="work__pokeball" src="./img/pokeball-sprite.png" />Tech</h2>
                     </div>
-                    <div class="work__card">
-                        <img class="work__img" src="./img/charizard-shot.jpg" />
-                        <h3 class="work__title">Beep boop</h3>
+                    <div class="grid__col grid---x-center">
+                        <h2 class="work__filter" data-poke-filter="talk"><img class="work__pokeball" src="./img/pokeball-sprite.png" />Talks</h2>
                     </div>
-                    <div class="work__card">
-                        <img class="work__img" src="./img/charizard-shot.jpg" />
-                        <h3 class="work__title">Beep boop</h3>
-                    </div>
-                    <div class="work__card">
-                        <img class="work__img" src="./img/charizard-shot.jpg" />
-                        <h3 class="work__title">Beep boop</h3>
-                    </div>
-                    <div class="work__card">
-                        <img class="work__img" src="./img/charizard-shot.jpg" />
-                        <h3 class="work__title">Beep boop</h3>
-                    </div>
-                    <div class="work__card">
-                        <img class="work__img" src="./img/charizard-shot.jpg" />
-                        <h3 class="work__title">Beep boop</h3>
+                    <div class="grid__col grid---x-right">
+                        <h2 class="work__filter" data-poke-filter="model"><img class="work__pokeball" src="./img/pokeball-sprite.png" />Modeling</h2>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section id="work" class="section__content flex__column">
+                <p class="work__copy">Resume, Talk Recordings, Modeling Pictures</p>
+                <p class="work__copy">Python, ReactJS, AngularJS, Node, PHP, Ruby on Rails</p>
+                <p class="work__copy">Speaker, Facilitator, Interviewer, Emcee, Panelist</p>
+                <p class="work__copy">Print, Video, Runway</p>
 
-            <div class="flex__row section__row">
-                <p><em>tl;dr</em> - I'm available for hire as a technology consultant, speaker, or a model. You can also <a href="https://www.dropbox.com/s/uu7wfklc72yi0q7/ResumeJamie.pdf?dl=0" target="_blank">view my résumé</a>.</p>
-            </div>
-            <div class="flex__row section__row flex--sa">
-                <div class="work__column">
-                    <h3>Presently</h3>
-                    <ul>
-                        <li>Dropbox</li>
-                    </ul>
-                </div>
-                <div class="work__column">
-                    <h3>Ongoing</h3>
-                    <ul>
-                        <li>Qulture Collective</li>
-                        <li>QTPOC Healing Directory</li>
-                        <li>TGIJP</li>
-                    </ul>
-                </div>
-                <div class="work__column">
-                    <h3>Past</h3>
-                    <ul>
-                        <li>Foundation</li>
-                        <li>CONEMO</li>
-                        <li>Rainbow Ipsum</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="flex__row section__row">
-                <p>I have experience with the following technologies and concepts:</p>
-                <p>Responsive web design, ReactJS, AngularJS, Wordpress Theme Development, A/B Testing, static site generators, design input</p>
-            </div>
-            <div class="flex__column speaking__container">
-                <h2>Speaking Engagements</h2>
-<!--                 <div class="flex__row section__row flex--sa">
-                    <div class="flex__item flex--shrink about__asset">
-                        <img class="about__image" src="./img/jamie-angular-conference.jpg" />
+                <div class="grid__row grid__row--roomy work__pokemon">
+                    <div class="grid__row">
+                        <div class="grid__col">
+                            <div class="media__image work__sprite">
+                                <img src="./img/poke-1-shadow.png" />
+                            </div>
+                            <div class="media__caption media__caption--middle work__copy">
+                                <h3 class="work__title">Dropbox</h3>
+                                <div class="work__hp-container">
+                                    <div class="work__hp work__hp--start"></div>
+                                    <div class="work__hp work__hp--mid">
+                                        <div class="work__hp-fill"></div>
+                                    </div>
+                                    <div class="work__hp work__hp--end"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid__col">
+                            <div class="media__image work__sprite">
+                                <img src="./img/poke-1-shadow.png" />
+                            </div>
+                            <div class="media__caption media__caption--middle work__copy">
+                                <h3 class="work__title">Qulture Collective</h3>
+                                <div class="work__hp-container">
+                                    <div class="work__hp work__hp--start"></div>
+                                    <div class="work__hp work__hp--mid">
+                                        <div class="work__hp-fill"></div>
+                                    </div>
+                                    <div class="work__hp work__hp--end"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flex__item flex--shrink about__asset">
-                        <img class="about__image" src="./img/jamie-lwt.jpg" />
+                    <div class="grid__row">
+                        <div class="grid__col">
+                            <div class="media__image work__sprite">
+                                <img src="./img/poke-3.png" />
+                            </div>
+                            <div class="media__caption media__caption--middle work__copy">
+                                <h3 class="work__title">ZURB - Foundation</h3>
+                                <div class="work__hp-container">
+                                    <div class="work__hp work__hp--start"></div>
+                                    <div class="work__hp work__hp--mid">
+                                        <div class="work__hp-fill"></div>
+                                    </div>
+                                    <div class="work__hp work__hp--end"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid__col">
+                            <div class="media__image work__sprite">
+                                <img src="./img/poke-2.png" />
+                            </div>
+                            <div class="media__caption media__caption--middle work__copy">
+                                <h3 class="work__title">Rainbow Ipsum</h3>
+                                <div class="work__hp-container">
+                                    <div class="work__hp work__hp--start"></div>
+                                    <div class="work__hp work__hp--mid">
+                                        <div class="work__hp-fill"></div>
+                                    </div>
+                                    <div class="work__hp work__hp--end"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flex__item flex--shrink about__asset">
-                        <img class="about__image" src="./img/jamie-lwt-2.jpg" />
+                    <div class="grid__row">
+                        <div class="grid__col">
+                            <div class="media__image work__sprite">
+                                <img src="./img/poke-1-shadow.png" />
+                            </div>
+                            <div class="media__caption media__caption--middle work__copy">
+                                <h3 class="work__title">CBITS @ Northwestern University</h3>
+                                <div class="work__hp-container">
+                                    <div class="work__hp work__hp--start"></div>
+                                    <div class="work__hp work__hp--mid">
+                                        <div class="work__hp-fill"></div>
+                                    </div>
+                                    <div class="work__hp work__hp--end"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid__col">
+                            <div class="media__image work__sprite">
+                                <img src="./img/poke-3.png" />
+                            </div>
+                            <div class="media__caption media__caption--middle work__copy">
+                                <h3 class="work__title">Razorfish</h3>
+                                <div class="work__hp-container">
+                                    <div class="work__hp work__hp--start"></div>
+                                    <div class="work__hp work__hp--mid">
+                                        <div class="work__hp-fill"></div>
+                                    </div>
+                                    <div class="work__hp work__hp--end"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div> -->
-
-                <div class="flex__item flex__row speaking__list">
-                    <span class="flex__item flex--shrink speaking__year">2016</span>
-                    <ul class="flex__item flex__column fa-ul">
-                        <li><i class="fa-li fa fa-angle-right"></i>LWT SF Summit - Emcee</li>
-                        <li><i class="fa-li fa fa-angle-right"></i>LWT SF Summit - Mainstage speaker</li>
-                    </ul>
-                </div>
-                <div class="flex__item flex__row speaking__list">
-                    <span class="flex__item flex--shrink speaking__year">2015</span>
-                    <ul class="flex__item flex__column fa-ul">
-                        <li><i class="fa-li fa fa-angle-double-right"></i>Dropbox - Fireside with Kara Swisher | Interviewer/Facilitator</li>
-                        <li><i class="fa-li fa fa-angle-double-right"></i>Facebook - Speaker Series | Interviewer/Facilitator</li>
-                        <li><i class="fa-li fa fa-angle-double-right"></i>Grace Hopper Conference - Dropbox Careers | Recruiter</li>
-                        <li><i class="fa-li fa fa-angle-double-right"></i>LWT New York Summit - Coding Bootcamp | Panelist</li>
-                        <li><i class="fa-li fa fa-angle-double-right"></i>Waffle JS - Zen and the Art of Coding | Speaker</li>
-                        <li><i class="fa-li fa fa-angle-double-right"></i>DreamForce - Women in Tech: DevZone Welcome Meetup | Host</li>
-                        <li><i class="fa-li fa fa-angle-double-right"></i>JS Summit - Developing a Responsive Framework with AngularJS | Speaker</li>
-                    </ul>
                 </div>
             </div>
-            <div class="flex__row section__row">
+            <div class="grid__row">
                 <p>Want to bring me in for a talk? Here are some past talks I've given. If anything pops out, feel free to contact me.</p>
                 <p>Do you like the work I do or fond of a talk I've given? Consider compensating me for the work, as often times, I'm not paid to speak or consult. All funds I receive go directly to organizations or individuals that support racial justice and QTBIPOC well-being.</p>
                 <p>Venmo, squarecash, paypal</p>
             </div>
-            <div class="flex__column section__row">
-                <h2>Modeling</h2>
-                <div class="flex__row section__row portfolio__container">
-                    <figure class="portfolio__item">
-                      <img class="portfolio__image" src="./img/sth.jpg" />
-                      <figcaption class="portfolio__caption">
-                        <h2 class="portfolio__title">St. Harridan</h2>
-                        <a class="portfolio__anchor" target="_blank" href="https://paper.dropbox.com/doc/Jamie-Projects-NwXhlcsWFqNn1FEy95TaU"></a>
-                      </figcaption>
-                    </figure>
-                    <figure class="portfolio__item">
-                      <img class="portfolio__image" src="./img/miki.jpg" />
-                      <figcaption class="portfolio__caption">
-                        <h2 class="portfolio__title">Miki Vargas Photography</h2>
-                        <a class="portfolio__anchor" target="_blank" href="https://github.com/zurb/inky-parse"></a>
-                      </figcaption>
-                    </figure>
-                    <figure class="portfolio__item">
-                      <img class="portfolio__image" src="./img/stuzo.jpg" />
-                      <figcaption class="portfolio__caption">
-                        <h2 class="portfolio__title">Stuzo Clothing</h2>
-                        <a class="portfolio__anchor" target="_blank" href="https://github.com/zurb/foundation"></a>
-                      </figcaption>
-                    </figure>
-                    <figure class="portfolio__item">
-                      <img class="portfolio__image" src="./img/thuy.jpg" />
-                      <figcaption class="portfolio__caption">
-                        <h2 class="portfolio__title">THÚY Custom Clothier</h2>
-                        <a class="portfolio__anchor" target="_blank" href="https://github.com/zurb/foundation-apps"></a>
-                      </figcaption>
-                    </figure>
-                    <figure class="portfolio__item">
-                      <img class="portfolio__image" src="./img/favicon.png" />
-                      <figcaption class="portfolio__caption">
-                        <h2 class="portfolio__title">Qwear Fashion</h2>
-                        <a class="portfolio__anchor" target="_blank" href="http://cbitsdev.feinberg.northwestern.edu/project/conemo/"></a>
-                      </figcaption>
-                    </figure>
-                    <figure class="portfolio__item">
-                      <img class="portfolio__image" src="./img/sharpe.jpg" />
-                      <figcaption class="portfolio__caption">
-                        <h2 class="portfolio__title">Sharpe Suiting</h2>
-                        <a class="portfolio__anchor" target="_blank" href="http://rainbowipsum.com"></a>
-                      </figcaption>
-                    </figure>
-                </div>
-            </div>
         </section>
-    <!--
-        <section id="contact" class="section__content flex__column">
-            <div class="flex__row section__header">
-                <h1>_ contact</h1>
+        <section id="contact" class="grid__section">
+            <div class="grid__row">
+                <h1 class="section__header">_ contact</h1>
             </div>
-            <div class="flex__row flex--sb contact__content">
-                <div class="flex__item flex__column flex--shrink contact__container">
+            <div class="grid__row grid__row--roomy grid---x-bookend">
+                <div class="grid__col grid__col--shrink">
                     <a target="_blank" href="mailto:hey@jamiechu.ng">
-                        <div class="flex__item contact__icon">
+                        <div class="media__image--round contact__icon">
                             <i class="fa fa-send fa-2x"></i>
                         </div>
                     </a>
                 </div>
-                <div class="flex__item flex__column flex--shrink contact__container">
+                <div class="grid__col grid__col--shrink">
                     <a target="_blank" href="https://github.com/attnjamie">
-                        <div class="flex__item contact__icon">
+                        <div class="media__image--round contact__icon">
                             <i class="fa fa-github-alt fa-2x"></i>
                         </div>
                     </a>
                 </div>
-                <div class="flex__item flex__column flex--shrink contact__container">
+                <div class="grid__col grid__col--shrink">
                     <a target="_blank" href="https://twitter.com/attnjamie">
-                        <div class="flex__item contact__icon">
+                        <div class="media__image--round contact__icon">
                             <i class="fa fa-twitter fa-2x"></i>
                         </div>
                     </a>
                 </div>
-                <div class="flex__item flex__column flex--shrink contact__container">
+                <div class="grid__col grid__col--shrink">
                     <a target="_blank" href="https://www.linkedin.com/in/attnjamie">
-                        <div class="flex__item contact__icon">
+                        <div class="media__image--round contact__icon">
                             <i class="fa fa-linkedin fa-2x"></i>
                         </div>
                     </a>
                 </div>
             </div>
         </section>
-    -->
     </main>
-    <footer class="footer flex__row">
-        <div class="footer__content">
+    <footer class="grid__section footer">
+        <div class="grid__row grid__row--roomy">
             <p>Jamie Chung is a developer currently located in the Bay Area.
             </p>
             <p>The video in the background is taken by Jon Rawlinson and displays the Okinawa Churaumi Aquarium.</p>

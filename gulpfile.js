@@ -70,7 +70,9 @@ gulp.task('js', function() {
 // Vendor Scripts
 
 gulp.task('vendor-js', function() {
-  return gulp.src('./node_modules/foundation-sites/js/foundation.min.js')
+  return gulp.src([
+    './node_modules/jquery/dist/jquery.min.js'
+    ])
     .pipe(gulp.dest(dirs.distJS))
 });
 
