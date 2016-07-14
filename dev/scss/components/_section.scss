@@ -187,8 +187,8 @@
     &__hp-fill {
         position: relative;
         top: -7px;
-        width: 100%; // variable percentage
-        background-color: color(green); // variable color
+        width: 100%; // percentage set by js
+        background-color: color(green); // color set by js
         height: 5px;
         transition: width .3s linear;
     }
