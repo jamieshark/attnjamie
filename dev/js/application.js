@@ -48,7 +48,7 @@
       var svgs = Array.prototype.slice.call( document.querySelectorAll( 'svg' ) ),
         hidden = Array.prototype.slice.call( document.querySelectorAll( '.hide' ) ),
         current_frame = 0,
-        total_frames = 60,
+        total_frames = 300,
         path = new Array(),
         length = new Array(),
         handle = 0;
@@ -78,15 +78,15 @@
         }
       }
 
-      function showPage() {
-        svgs.forEach( function( el, i ) {
-          el.setAttribute( 'class', el.getAttribute('class') + ' hide' );
-        } );
-        hidden.forEach( function( el, i ) {
-          $(el).removeClass( 'hide' );
-          $(el).addClass( 'show' );
-        } );
-      }
+      // function showPage() {
+      //   svgs.forEach( function( el, i ) {
+      //     el.setAttribute( 'class', el.getAttribute('class') + ' hide' );
+      //   } );
+      //   hidden.forEach( function( el, i ) {
+      //     $(el).removeClass( 'hide' );
+      //     $(el).addClass( 'show' );
+      //   } );
+      // }
 
       init();
       draw();
