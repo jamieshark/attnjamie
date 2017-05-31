@@ -1,0 +1,12 @@
+@import "constants";
+@import "media-queries";
+
+// buttons
+.btn {
+    cursor: pointer;
+    margin: 1rem;
+    letter-spacing: 5px;
+    font-size: $font-size-medium;
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
+}

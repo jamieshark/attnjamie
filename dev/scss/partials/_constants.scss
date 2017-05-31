@@ -1,0 +1,99 @@
+// Constants and Helpers
+
+// rem calculator
+// includes fallback for pixel values
+
+html {
+  font-size: 62.5%;
+}
+
+$font-size-base: 12px;
+$font-size-medium: 20px;
+$font-size-large: 24px;
+$font-size-larger: 36px;
+$font-size-xl: 144px;
+
+@function parseInt($n) {
+  @return $n / ($n * 0 + 1);
+}
+
+@mixin rem($property, $values) {
+  $px : ();
+  $rem: ();
+
+  @each $value in $values {
+
+    @if $value == 0 or $value == auto {
+      $px : append($px , $value);
+      $rem: append($rem, $value);
+    }
+
+    @else {
+      $unit: unit($value);
+      $val: parseInt($value);
+
+      @if $unit == "px" {
+        $px : append($px,  $value);
+        $rem: append($rem, ($val / 10 + rem));
+      }
+
+      @if $unit == "rem" {
+        $px : append($px,  ($val * 10 + px));
+        $rem: append($rem, $value);
+      }
+    }
+  }
+
+  @if $px == $rem {
+    #{$property}: $px;
+  } @else {
+    #{$property}: $px;
+    #{$property}: $rem;
+  }
+}
+
+$FONT-FAMILY: 'Comic Sans MS', 'Open Sans', sans-serif;
+
+// Color Constants
+$pink: #FB5FC4;
+$dark-green: #497C11;
+$green: #7ED321;
+$grey: #9B9B9B;
+$black: #090909;
+$white: #FFFFFF;
+
+
+// Typography helpers
+%TEXT {
+    color: $black;
+    font-family: $FONT-FAMILY;
+    @include rem(font-size, 1.6rem);
+}
+
+%TEXT-GREY {
+    @extend %TEXT;
+    color: $grey;
+}
+
+%H1 {
+    @extend %TEXT;
+    @include rem(font-size, 3rem);
+}
+
+%H2 {
+    @extend %TEXT;
+    @include rem(font-size, 2rem);
+}
+
+%BODY-COPY {
+    @extend %TEXT-GREY;
+    @include rem(font-size, 2rem);
+}
+
+// Image styles
+@mixin border($color) {
+    border: 3px solid $color;
+}
+
+
+

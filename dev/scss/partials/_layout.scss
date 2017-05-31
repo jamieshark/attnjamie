@@ -1,0 +1,26 @@
+html, body {
+    box-sizing: border-box;
+    // height: 100%;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: $font-size-base;
+    font-smoothing: antialiased;
+}
+
+.flex {
+    display: flex;
+
+    &__row {
+        flex-flow: row;
+    }
+
+    &__column {
+        flex-flow: column;
+    }
+
+    &--sa {
+        justify-content: space-between;
+    }
+}

@@ -1,0 +1,110 @@
+@import "media-queries";
+@import "constants";
+
+.header {
+    height: 80px;
+    align-items: center;
+    margin: 1rem;
+    &__juice {
+        position: relative;
+        top: -40px;
+        flex: 1 auto;
+        transition: transform 0.3s;
+
+        &--flipped {
+            .header__juice-front {
+                transform: rotateY(-180deg);
+            }
+
+            .header__juice-back {
+                transform: rotateY(0deg);
+            }
+        }
+    }
+
+    &__juice-img {
+        margin-bottom: 1rem;
+        width: 50px;
+        height: auto;
+    }
+
+    &__countdown {
+        visibility: visible;
+        font-family: 'Futura';
+        font-weight: 600;
+        font-size: $font-size-large;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+
+        @media ($SMALL_BELOW) {
+            visibility: hidden;
+        }
+        &--zeroed {
+            text-decoration: line-through;
+        }
+    }
+
+    &__juice-front, &__juice-back {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        cursor: pointer;
+
+        transition: transform 0.3s;
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &__juice-front {
+        transform: rotateY(0deg);
+    }
+
+    &__juice-back {
+        transform: rotateY(-180deg);
+    }
+}
+
+.hero {
+    align-items: center;
+    margin: 5rem 0 0 0;
+
+    @media ($MEDIUM_BELOW) {
+        text-align: center;
+    }
+    &__heading, &__subheading {
+        display: flex;
+        margin: 1rem;
+    }
+
+    &__heading {
+        font-size: $font-size-xl;
+        letter-spacing: 2px;
+        text-align: center;
+
+        @media ($MEDIUM_BELOW) {
+            font-size: 7rem;
+        }
+    }
+
+    &__subheading {
+        font-size: $font-size-large;
+        letter-spacing: 3px;
+        &--bg {
+            font-size: 18px;
+            padding: 1rem;
+            color: #000;
+            background-color: #fff;
+            transition: all 0.3s;
+        }
+        &--lc {
+            letter-spacing: 0;
+            text-transform: none;
+            font-size: 20px;
+        }
+        &--date {
+            font-size: 36px;
+        }
+    }
+}
