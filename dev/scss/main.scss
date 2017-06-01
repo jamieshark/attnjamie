@@ -1,63 +1,92 @@
-// @import 'partials/reset';
+@import 'partials/reset';
 @import 'partials/constants';
 @import 'partials/media-queries';
-@import 'partials/section';
 @import 'partials/layout';
 @import 'partials/components';
 
 body {
-  font-family: avenir, helvetica, sans-serif;
   background: skyblue;
   color: white;
 }
 
-h1 {
+.hero {
+  color: #2173a3;
   text-align: center;
-  padding-bottom: 50px;
-  font-size: 2.4em;
-  font-weight: 200;
-  letter-spacing: .07em;
-}
 
-svg {
-  position: fixed;
-  margin: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 50%;
-  max-width: 480px;
-  max-height: 340px;
-}
+  &__drawing {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #5ca9d6;
 
-#signature {
-  z-index: 500;
-}
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+  }
 
+  &__signature {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__headline {
+    background-color: #5ca9d6;
+
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__header {
+    color: #fff;
+
+    margin: 0;
+    padding: 2rem 0;
+    font-size: 3em;
+    font-weight: 200;
+    letter-spacing: .07em;
+  }
+
+  svg {
+    &#rectangle {
+      width: 100%;
+      height: 75vh;
+    }
+
+    &#signature {
+      position: absolute;
+      top: 35%;
+      z-index: 50;
+      max-width: 480px;
+      max-height: 340px;
+      width: 90%;
+    }
+  }
+}
 
 .path {
   stroke-dashoffset: 1000;
   stroke-dasharray: 1000;
 }
 
-.frame {
-  height: 3000px;
-}
-
-/* Demo 2 and demo 3 */
-
 .show {
   opacity: 1;
+  transition: opacity 0.5s;
 }
 
 .hide {
   opacity: 0;
+  transition: opacity 0.5s;
 }
 
 .line-drawing,
 .illustration {
-  -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
 }
 
@@ -67,107 +96,21 @@ svg {
   stroke-width: 3;
 }
 
-path.line-round {
-  stroke-linecap: round;
-}
-
-path.stroke-medium {
-  stroke-width: 2;
-}
-
-path.stroke-thin {
-  stroke-width: 1;
-}
-.demo-loading .show,
-.demo-loading .hide {
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
-}
-
-
-.demo-loading .headline {
-  position: relative;
-  color: #2173a3;
-  text-align: center;
-}
-
-.demo-loading .headline div {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #5ca9d6;
-}
-
-.demo-loading .headline h1 {
-  margin: 0;
-  padding: 3em 0;
-  font-size: 3em;
-  position: relative;
-  z-index: 10;
-}
-
-.demo-loading .headline h1 span:last-child {
-  display: block;
-  font-weight: 300;
-  font-size: 50%;
-}
-
-.demo-loading section {
-  margin: 2em auto 8em;
-  max-width: 700px;
-  text-align: center;
-}
-
-.demo-loading section figure {
-  position: relative;
-  display: inline-block;
-  margin: 0 15px 20px;
-  width: 200px;
-  text-align: left;
-}
-
-.demo-loading section figure img {
-  display: block;
-  margin: 0 auto 10px;
-}
-
-.demo-loading svg.line-drawing {
-  position: absolute;
-  max-width: 100%;
-  z-index: 10;
-  top: 0;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-}
-
-.demo-loading svg.line-drawing path {
+svg.line-drawing path {
   fill: none;
   stroke-width: 2;
   stroke: #ddd;
 }
 
-.demo-loading svg.line-drawing path.darker {
+svg.line-drawing path.darker {
   stroke: #aaa;
 }
 
-.demo-loading svg#rectangle {
-  width: 100%;
-  height: 100%;
+h1 {
+  font-size: $font-size-large;
 }
 
-.demo-loading svg#headline {
-  top: 50%;
-  margin-top: 2px;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
+p {
+  font-size: $font-size-base;
+  font-weight: 100;
 }
-
-.demo-loading svg#related{
-  width: 100%;
-  height: 100%;
-  max-width: 490px;
-}
-

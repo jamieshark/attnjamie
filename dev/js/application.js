@@ -78,15 +78,15 @@
         }
       }
 
-      // function showPage() {
-      //   svgs.forEach( function( el, i ) {
-      //     el.setAttribute( 'class', el.getAttribute('class') + ' hide' );
-      //   } );
-      //   hidden.forEach( function( el, i ) {
-      //     $(el).removeClass( 'hide' );
-      //     $(el).addClass( 'show' );
-      //   } );
-      // }
+      function showPage() {
+        svgs.forEach( function( el, i ) {
+          el.setAttribute( 'class', el.getAttribute('class') + ' hide' );
+        } );
+        hidden.forEach( function( el, i ) {
+          $(el).removeClass( 'hide' );
+          $(el).addClass( 'show' );
+        } );
+      }
 
       init();
       draw();
